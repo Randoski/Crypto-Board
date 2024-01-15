@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <section>
       <!-- Navbar -->
       <nav class="navbar navbar-expand-sm cont fixed-top bg-white navb">
         <div class="container">
@@ -62,7 +62,7 @@
           </div>
         </div>
       </nav>
-    </div>
+    </section>
   </div>
 </template>
 

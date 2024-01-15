@@ -6,23 +6,47 @@
       <p>Text description for the crypto</p>
 
       <!-- Tabs -->
-      <div class="tablet">
-        <router-link to="/" class="tabs active-tab">Cryptocurrencies</router-link>
-        <router-link to="/" class="tabs">Gainers</router-link>
-        <router-link to="/" class="tabs">Losers</router-link>
-        <router-link to="/" class="tabs">BRC-20</router-link>
-        <router-link to="/" class="tabs">DRC-20</router-link>
-        <router-link to="/" class="tabs">SRC-20</router-link>
-        <router-link to="/" class="tabs">ASC-20</router-link>
-        <router-link to="/" class="tabs">Layer-1</router-link>
-        <router-link to="/" class="tabs">Layer-2</router-link>
-        <router-link to="/" class="tabs">RWA</router-link>
-        <router-link to="/" class="tabs">Meme</router-link>
-        <router-link to="/" class="tabs">AI</router-link>
-      </div>
+      <section class="tablet tab-container">
+        <div class="tabs active-tab">
+          <router-link to="/" class="tabs-link">Cryptocurrencies</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">Gainers</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">Losers</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">BRC-20</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">DRC-20</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">SRC-20</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">ASC-20</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">Layer-1</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">Layer-2</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">RWA</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">Meme</router-link>
+        </div>
+        <div class="tabs">
+          <router-link to="/" class="tabs-link">AI</router-link>
+        </div>
+      </section>
 
       <!-- Crypto Table -->
-      <div class="mt-3">
+      <section class="mt-3">
         <table class="table table-hover">
           <thead>
             <!-- Table Head -->
@@ -43,6 +67,26 @@
                 <img src="" alt="" />
                 <!-- Crypto Name -->
                 Bitcoin
+                <!-- Crypto Abbreviation -->
+                <span class="abbr">BTC</span>
+              </td>
+
+              <!-- Price -->
+              <td>2.46 million NGN</td>
+
+              <!-- Market Cap -->
+              <td>805.57 Trillion NGN</td>
+
+              <!-- 24 Hours -->
+              <td class="text-end">+2.5</td>
+            </tr>
+            <tr>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <!-- Crypto Image -->
+                <img src="" alt="" />
+                <!-- Crypto Name -->
+                Bitcoin
                 <!-- Crypto Abbrevation -->
                 <span class="abbr">BTC</span>
               </td>
@@ -56,288 +100,199 @@
               <!-- 24 Hours -->
               <td class="text-end">+2.5</td>
             </tr>
+            <tr>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <!-- Crypto Image -->
+                <img src="" alt="" />
+                <!-- Crypto Name -->
+                Bitcoin
+                <!-- Crypto Abbrevation -->
+                <span class="abbr">BTC</span>
+              </td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Price -->
+              <td>2.46 million NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Market Cap -->
+              <td>805.57 Trillion NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
+              <!-- 24 Hours -->
+              <td class="text-end">+2.5</td>
             </tr>
             <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <!-- Crypto Image -->
+                <img src="" alt="" />
+                <!-- Crypto Name -->
+                Bitcoin
+                <!-- Crypto Abbrevation -->
+                <span class="abbr">BTC</span>
+              </td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Price -->
+              <td>2.46 million NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Market Cap -->
+              <td>805.57 Trillion NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
+              <!-- 24 Hours -->
+              <td class="text-end">+2.5</td>
             </tr>
             <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <!-- Crypto Image -->
+                <img src="" alt="" />
+                <!-- Crypto Name -->
+                Bitcoin
+                <!-- Crypto Abbrevation -->
+                <span class="abbr">BTC</span>
+              </td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Price -->
+              <td>2.46 million NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Market Cap -->
+              <td>805.57 Trillion NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
+              <!-- 24 Hours -->
+              <td class="text-end">+2.5</td>
             </tr>
             <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <!-- Crypto Image -->
+                <img src="" alt="" />
+                <!-- Crypto Name -->
+                Bitcoin
+                <!-- Crypto Abbrevation -->
+                <span class="abbr">BTC</span>
+              </td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Price -->
+              <td>2.46 million NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Market Cap -->
+              <td>805.57 Trillion NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
+              <!-- 24 Hours -->
+              <td class="text-end">+2.5</td>
             </tr>
             <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <!-- Crypto Image -->
+                <img src="" alt="" />
+                <!-- Crypto Name -->
+                Bitcoin
+                <!-- Crypto Abbrevation -->
+                <span class="abbr">BTC</span>
+              </td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Price -->
+              <td>2.46 million NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Market Cap -->
+              <td>805.57 Trillion NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
+              <!-- 24 Hours -->
+              <td class="text-end">+2.5</td>
             </tr>
             <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <!-- Crypto Image -->
+                <img src="" alt="" />
+                <!-- Crypto Name -->
+                Bitcoin
+                <!-- Crypto Abbrevation -->
+                <span class="abbr">BTC</span>
+              </td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Price -->
+              <td>2.46 million NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <!-- Market Cap -->
+              <td>805.57 Trillion NGN</td>
 
-            <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
+              <!-- 24 Hours -->
+              <td class="text-end">+2.5</td>
             </tr>
             <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
-            </tr>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <!-- Crypto Image -->
+                <img src="" alt="" />
+                <!-- Crypto Name -->
+                Bitcoin
+                <!-- Crypto Abbrevation -->
+                <span class="abbr">BTC</span>
+              </td>
 
+              <!-- Price -->
+              <td>2.46 million NGN</td>
+
+              <!-- Market Cap -->
+              <td>805.57 Trillion NGN</td>
+
+              <!-- 24 Hours -->
+              <td class="text-end">+2.5</td>
+            </tr>
             <tr>
-              <td class="numbering">2</td>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-              <td class="text-end">-0.5</td>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <!-- Crypto Image -->
+                <img src="" alt="" />
+                <!-- Crypto Name -->
+                Bitcoin
+                <!-- Crypto Abbrevation -->
+                <span class="abbr">BTC</span>
+              </td>
+
+              <!-- Price -->
+              <td>2.46 million NGN</td>
+
+              <!-- Market Cap -->
+              <td>805.57 Trillion NGN</td>
+
+              <!-- 24 Hours -->
+              <td class="text-end">+2.5</td>
+            </tr>
+            <tr>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <!-- Crypto Image -->
+                <img src="" alt="" />
+                <!-- Crypto Name -->
+                Bitcoin
+                <!-- Crypto Abbrevation -->
+                <span class="abbr">BTC</span>
+              </td>
+
+              <!-- Price -->
+              <td>2.46 million NGN</td>
+
+              <!-- Market Cap -->
+              <td>805.57 Trillion NGN</td>
+
+              <!-- 24 Hours -->
+              <td class="text-end">+2.5</td>
             </tr>
           </tbody>
         </table>
-      </div>
+      </section>
 
       <!-- Pagination -->
-      <div>
+      <section>
         <ul
           class="pag pagination pagination-sm justify-content-center"
           style="margin: 40px 0"
         >
-          <li class="page-item pag"><a class="page-link pag" href="#">Previous</a></li>
+          <li class="page-item pag">
+            <a class="page-link pag" href="#">Previous</a>
+          </li>
           <li class="page-item"><a class="page-link pag" href="#">1</a></li>
           <li class="page-item active">
             <a class="page-link pag active-pag" href="#">2</a>
@@ -348,10 +303,37 @@
           <li class="page-item"><a class="page-link pag" href="#">70</a></li>
           <li class="page-item"><a class="page-link pag" href="#">Next</a></li>
         </ul>
-      </div>
+      </section>
+
+      <!-- Gainers, Losers and Newest -->
+      <section class="row sub-section">
+        <div class="col-sm-4">
+          <NewestCoin />
+        </div>
+        <div class="col-sm-4">
+          <Gainers />
+        </div>
+        <div class="col-sm-4">
+          <Losers />
+        </div>
+      </section>
     </div>
   </div>
 </template>
+
+<script>
+import NewestCoin from "../components/NewestCoin.vue";
+import Gainers from "../components/Gainers.vue";
+import Losers from "../components/Losers.vue";
+
+export default {
+  components: {
+    NewestCoin,
+    Gainers,
+    Losers,
+  },
+};
+</script>
 
 <style>
 /* Page Settings */
@@ -360,6 +342,11 @@
 }
 
 /* Tab */
+.tab-container {
+  display: flex;
+}
+
+/* Tabs */
 .tablet {
   overflow-x: auto;
   font-size: 12px;
@@ -368,18 +355,51 @@
   margin-top: 32px;
 }
 
-.tabs {
-  text-decoration: none !important;
-  margin-right: 10px;
-  background: transparent;
-  border-radius: 16px;
-  padding: 12px;
-  color: rgb(100, 100, 100);
+/* Tabs scrollbar*/
+.tablet::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
+/* Tabs scrollbar (Firefox)*/
+.tablet {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Tabs */
+.tabs {
+  margin-right: 10px;
+  background: transparent;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border: 1px solid transparent;
+}
+
+/* Tab hover */
+.tabs:hover {
+  color: white;
+  background-color: rgba(14, 137, 0, 0.2);
+}
+
+/* Tab links */
+.tabs-link {
+  color: rgb(100, 100, 100) !important;
+  text-decoration: none;
+}
+
+/* Active Tab link */
 .active-tab {
   background: #0e8900;
   color: white;
+}
+
+/* Active Tab Link */
+.active-tab .tabs-link {
+  color: white !important;
 }
 
 /* Table Head */
@@ -421,14 +441,22 @@ td {
   color: rgb(69, 66, 66) !important;
   font-weight: 700;
   box-shadow: none !important;
-  border: none;
+  border: 1px solid transparent !important;
   margin: 0 5px;
+  border-radius: 4px;
 }
 
 /* Active Pagination */
 .active-pag {
   color: white !important;
   background: #0e8900 !important;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+/* Sub section */
+.sub-section {
+  margin-top: 108px;
 }
 
 /* Media Queries */
@@ -463,4 +491,4 @@ td {
 }
 </style>
 
-// Footer & fetch // reduce table mt
+// Footer & fetch
