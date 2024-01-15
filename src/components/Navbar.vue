@@ -2,7 +2,7 @@
   <div>
     <div>
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-sm cont fixed-top bg-white">
+      <nav class="navbar navbar-expand-sm cont fixed-top bg-white navb">
         <div class="container">
           <router-link class="navbar-brand logo" to="/">Crypto-Board</router-link>
 
@@ -67,6 +67,10 @@
 </template>
 
 <style>
+/* Navbar */
+.navb {
+  padding-bottom: 15px !important;
+}
 /* Logo */
 .logo {
   color: #0e8900 !important;
@@ -75,6 +79,7 @@
   font-family: "Montserrat Alternates", sans-serif;
 }
 
+/* Nav links */
 .links {
   font-weight: bold;
   font-size: 13px;

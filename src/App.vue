@@ -24,9 +24,10 @@ body {
 h1 {
   font-size: 28px !important;
   font-weight: bold !important;
+  color: rgb(69, 66, 66) !important;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 850x) {
   .cont {
     margin: 0 35px;
   }
@@ -35,7 +36,7 @@ h1 {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   h1 {
     font-size: 18px !important;
     font-weight: bold !important;
