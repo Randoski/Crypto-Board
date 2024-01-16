@@ -307,14 +307,19 @@
 
       <!-- Gainers, Losers and Newest -->
       <section class="row sub-section">
-        <div class="col-sm-4">
-          <NewestCoin />
-        </div>
-        <div class="col-sm-4">
+        <!-- Gainers -->
+        <div class="col-sm-6">
           <Gainers />
         </div>
-        <div class="col-sm-4">
+
+        <!-- Losers -->
+        <div class="col-sm-6">
           <Losers />
+        </div>
+
+        <!-- Newest Coin -->
+        <div class="col-sm-6">
+          <NewestCoin />
         </div>
       </section>
     </div>
@@ -392,7 +397,8 @@ export default {
 }
 
 /* Active Tab link */
-.active-tab {
+.active-tab,
+.active-tab:hover {
   background: #0e8900;
   color: white;
 }
@@ -490,5 +496,3 @@ td {
   }
 }
 </style>
-
-// Footer & fetch

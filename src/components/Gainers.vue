@@ -103,7 +103,7 @@
 
     <!-- Redirect to All Gainers Page -->
     <div>
-      <router-link to="/" class="cta">All Gainers</router-link>
+      <router-link to="/" class="cta">View all Gainers</router-link>
     </div>
   </div>
 </template>

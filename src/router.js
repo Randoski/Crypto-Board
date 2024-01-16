@@ -10,9 +10,9 @@ const routes = [
     },
 
     {
-        path: '/home',
-        name: 'Home',
-        component: () => import('./views/Home.vue'),
+        path: '/learn',
+        name: 'Learn',
+        component: () => import('./views/Learn.vue'),
     },
 
     {

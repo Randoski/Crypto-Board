@@ -103,7 +103,7 @@
 
     <!-- Redirect to All Gainers Page -->
     <div>
-      <router-link to="/" class="cta">All Losers</router-link>
+      <router-link to="/" class="cta">View all Losers</router-link>
     </div>
   </div>
 </template>

@@ -99,7 +99,7 @@
 
     <!-- Redirect to Newest Coins Page -->
     <div>
-      <router-link to="/" class="cta">Newest Link</router-link>
+      <router-link to="/" class="cta">View Newest Coins</router-link>
     </div>
   </div>
 </template>

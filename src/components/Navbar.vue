@@ -25,10 +25,11 @@
               </li>
 
               <li class="nav-item">
-                <router-link class="nav-link" to="/link1">Link</router-link>
+                <router-link class="nav-link" to="/learn">Crypto 101</router-link>
               </li>
 
-              <li class="nav-item dropdown">
+              <!-- Dropdown -->
+              <!-- <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -52,13 +53,25 @@
                     >
                   </li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
 
-            <!-- Right Link-->
-            <li class="nav-link ms-auto links">
-              <router-link class="dropdown-item" to="/link">A third link</router-link>
-            </li>
+            <!-- Right Links with Love and Search icons -->
+            <ul class="navbar-nav ms-auto">
+              <!-- Love icon -->
+              <li class="nav-item links">
+                <router-link class="dropdown-item" to="/favorites">
+                  <i class="far fa-heart love-icon"></i>
+                </router-link>
+              </li>
+
+              <!-- Search icon -->
+              <li class="nav-item links">
+                <router-link class="dropdown-item" to="/link">
+                  <i class="fas fa-search search-icon"></i>
+                </router-link>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -103,9 +116,31 @@
   border: none;
 }
 
+.love-icon,
+.search-icon {
+  font-size: 1.3em;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.search-icon {
+  font-size: 1.2em;
+}
+
+.love-icon:hover,
+.search-icon:hover {
+  color: #0e8900;
+  border-color: #0e8900;
+}
+
 /* Media Queries */
 
 /* Margin for navbar */
+@media (min-width: 650px) {
+  .search-icon {
+    margin-left: 16px;
+  }
+}
+
 @media (min-width: 768px) {
   .cont {
     margin: 0 35px;
