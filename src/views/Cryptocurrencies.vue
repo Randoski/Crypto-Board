@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- Page headings -->
-    <div class="cont page-settings">
+    <div class="page-settings">
       <h1>Some header for the coin type</h1>
       <p>Text description for the crypto</p>
 

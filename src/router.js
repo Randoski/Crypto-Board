@@ -16,9 +16,9 @@ const routes = [
     },
 
     {
-        path: '/page',
-        name: 'Page',
-        component: () => import('./views/Page.vue'),
+        path: '/coin',
+        name: 'Coin',
+        component: () => import('./views/Coin.vue'),
     },
 ];
 

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- Page headings -->
-    <div class="cont page-settings">
+    <div class="page-settings">
       <!-- <h1 class="learn-header">Get Started with Crypto</h1>
       <p>
         We've compiled a couple of popular and important questions to help you understand
