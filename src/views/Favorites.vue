@@ -304,41 +304,9 @@
           <li class="page-item"><a class="page-link pag" href="#">Next</a></li>
         </ul>
       </section>
-
-      <!-- Gainers, Losers and Newest -->
-      <section class="row sub-section">
-        <!-- Gainers -->
-        <div class="col-sm-6">
-          <Gainers />
-        </div>
-
-        <!-- Losers -->
-        <div class="col-sm-6">
-          <Losers />
-        </div>
-
-        <!-- Newest Coin -->
-        <div class="col-sm-6">
-          <NewestCoin />
-        </div>
-      </section>
     </div>
   </div>
 </template>
-
-<script>
-import NewestCoin from "../components/NewestCoin.vue";
-import Gainers from "../components/Gainers.vue";
-import Losers from "../components/Losers.vue";
-
-export default {
-  components: {
-    NewestCoin,
-    Gainers,
-    Losers,
-  },
-};
-</script>
 
 <style>
 /* Page Settings */

@@ -20,7 +20,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .error-container {
   display: flex;
   justify-content: center;
@@ -59,6 +59,10 @@ p {
   background-color: #0e8900;
   font-weight: 700;
   font-size: 14px;
+}
+
+.cta:hover {
+  background-color: rgba(14, 137, 0, 0.9);
 }
 
 .animated-icon {

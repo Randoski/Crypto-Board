@@ -23,6 +23,13 @@ const routes = [
         component: () => import('./views/Coin.vue'),
     },
 
+    // favorites
+    {
+        path: '/favorites',
+        name: 'Favorites',
+        component: () => import('./views/Favorites.vue'),
+    },
+
     // 404
     {
         path: '/:pathMatch(.*)*',
