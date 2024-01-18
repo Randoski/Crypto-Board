@@ -7,7 +7,7 @@
       All Losers description All Losers description All Losers description
     </p>
 
-    <table class="table table-hover table-sub-section">
+    <table class="table table-sub-section">
       <thead>
         <!-- Table Head -->
         <tr>
@@ -22,81 +22,23 @@
         <tr>
           <td class="numbering">1</td>
           <td class="d-flex align-items-center">
-            <!-- Crypto Name -->
-            Bitcoin
-            <!-- Crypto Abbreviation -->
-            <span class="abbr">BTC</span>
+            <router-link to="/coin" class="table-link">
+              <!-- Crypto Name -->
+              Bitcoin
+              <!-- Crypto Abbreviation -->
+              <span class="abbr">BTC</span>
+            </router-link>
           </td>
 
           <!-- Price -->
-          <td>2.46 million NGN</td>
-
-          <!-- Increase -->
-          <td class="text-end">+5.72%</td>
-        </tr>
-
-        <tr>
-          <td class="numbering">1</td>
-          <td class="d-flex align-items-center">
-            <!-- Crypto Name -->
-            Bitcoin
-            <!-- Crypto Abbreviation -->
-            <span class="abbr">BTC</span>
+          <td>
+            <router-link to="/coin" class="table-link"> 2.46 million NGN</router-link>
           </td>
 
-          <!-- Price -->
-          <td>2.46 million NGN</td>
-
           <!-- Increase -->
-          <td class="text-end">+5.72%</td>
-        </tr>
-
-        <tr>
-          <td class="numbering">1</td>
-          <td class="d-flex align-items-center">
-            <!-- Crypto Name -->
-            Bitcoin
-            <!-- Crypto Abbreviation -->
-            <span class="abbr">BTC</span>
+          <td class="text-end">
+            <router-link to="/coin" class="table-link"> +5.72%</router-link>
           </td>
-
-          <!-- Price -->
-          <td>2.46 million NGN</td>
-
-          <!-- Increase -->
-          <td class="text-end">+5.72%</td>
-        </tr>
-
-        <tr>
-          <td class="numbering">1</td>
-          <td class="d-flex align-items-center">
-            <!-- Crypto Name -->
-            Bitcoin
-            <!-- Crypto Abbreviation -->
-            <span class="abbr">BTC</span>
-          </td>
-
-          <!-- Price -->
-          <td>2.46 million NGN</td>
-
-          <!-- Increase -->
-          <td class="text-end">+5.72%</td>
-        </tr>
-
-        <tr>
-          <td class="numbering">1</td>
-          <td class="d-flex align-items-center">
-            <!-- Crypto Name -->
-            Bitcoin
-            <!-- Crypto Abbreviation -->
-            <span class="abbr">BTC</span>
-          </td>
-
-          <!-- Price -->
-          <td>2.46 million NGN</td>
-
-          <!-- Increase -->
-          <td class="text-end">+5.72%</td>
         </tr>
       </tbody>
     </table>

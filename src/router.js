@@ -30,11 +30,12 @@ const routes = [
         component: () => import('./views/Favorites.vue'),
     },
 
-    // 404
+
     {
-        path: '/:pathMatch(.*)*',
-        name: '404',
-        component: () => import('./views/404.vue'),
+        // path: '/:pathMatch(.*)*',
+        path: '/:pathMatch(.*)',
+        name: 'NotFound',
+        component: () => import('./views/NotFound.vue'),
     },
 ];
 

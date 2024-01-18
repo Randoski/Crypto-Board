@@ -63,222 +63,32 @@
             <tr>
               <td class="numbering">1</td>
               <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbreviation -->
-                <span class="abbr">BTC</span>
+                <router-link to="/coin" class="table-link">
+                  <!-- Crypto Image -->
+                  <img src="" alt="" />
+                  <!-- Crypto Name -->
+                  Bitcoin
+                  <!-- Crypto Abbreviation -->
+                  <span class="abbr">BTC</span></router-link
+                >
               </td>
 
               <!-- Price -->
-              <td>2.46 million NGN</td>
-
-              <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
-              <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">1</td>
-              <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbrevation -->
-                <span class="abbr">BTC</span>
+              <td>
+                <router-link to="/coin" class="table-link"> 2.46 million NGN</router-link>
               </td>
 
-              <!-- Price -->
-              <td>2.46 million NGN</td>
-
               <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
-              <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">1</td>
-              <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbrevation -->
-                <span class="abbr">BTC</span>
+              <td>
+                <router-link to="/coin" class="table-link"
+                  >805.57 Trillion NGN</router-link
+                >
               </td>
 
-              <!-- Price -->
-              <td>2.46 million NGN</td>
-
-              <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
               <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">1</td>
-              <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbrevation -->
-                <span class="abbr">BTC</span>
+              <td class="text-end">
+                <router-link to="/coin" class="table-link">+2.5</router-link>
               </td>
-
-              <!-- Price -->
-              <td>2.46 million NGN</td>
-
-              <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
-              <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">1</td>
-              <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbrevation -->
-                <span class="abbr">BTC</span>
-              </td>
-
-              <!-- Price -->
-              <td>2.46 million NGN</td>
-
-              <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
-              <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">1</td>
-              <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbrevation -->
-                <span class="abbr">BTC</span>
-              </td>
-
-              <!-- Price -->
-              <td>2.46 million NGN</td>
-
-              <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
-              <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">1</td>
-              <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbrevation -->
-                <span class="abbr">BTC</span>
-              </td>
-
-              <!-- Price -->
-              <td>2.46 million NGN</td>
-
-              <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
-              <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">1</td>
-              <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbrevation -->
-                <span class="abbr">BTC</span>
-              </td>
-
-              <!-- Price -->
-              <td>2.46 million NGN</td>
-
-              <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
-              <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">1</td>
-              <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbrevation -->
-                <span class="abbr">BTC</span>
-              </td>
-
-              <!-- Price -->
-              <td>2.46 million NGN</td>
-
-              <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
-              <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">1</td>
-              <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbrevation -->
-                <span class="abbr">BTC</span>
-              </td>
-
-              <!-- Price -->
-              <td>2.46 million NGN</td>
-
-              <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
-              <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
-            </tr>
-            <tr>
-              <td class="numbering">1</td>
-              <td class="d-flex align-items-center">
-                <!-- Crypto Image -->
-                <img src="" alt="" />
-                <!-- Crypto Name -->
-                Bitcoin
-                <!-- Crypto Abbrevation -->
-                <span class="abbr">BTC</span>
-              </td>
-
-              <!-- Price -->
-              <td>2.46 million NGN</td>
-
-              <!-- Market Cap -->
-              <td>805.57 Trillion NGN</td>
-
-              <!-- 24 Hours -->
-              <td class="text-end">+2.5</td>
             </tr>
           </tbody>
         </table>
@@ -308,17 +118,20 @@
       <!-- Gainers, Losers and Newest -->
       <section class="row sub-section">
         <!-- Gainers -->
-        <div class="col-sm-6">
+        <div class="col-sm-5">
           <Gainers />
         </div>
 
         <!-- Losers -->
-        <div class="col-sm-6">
+        <div class="col-sm-2"></div>
+
+        <!-- Losers -->
+        <div class="col-sm-5">
           <Losers />
         </div>
 
         <!-- Newest Coin -->
-        <div class="col-sm-6">
+        <div class="col-sm-5">
           <NewestCoin />
         </div>
       </section>
@@ -414,6 +227,14 @@ th {
   color: rgb(100, 100, 100) !important;
 }
 
+.table-link,
+.table-link:hover,
+.table-link:active,
+.table-link:visited {
+  color: rgb(100, 100, 100) !important;
+  text-decoration: none;
+}
+
 /* Table Data */
 td {
   padding-top: 20px !important;
@@ -463,10 +284,6 @@ td {
 /* Sub section */
 .sub-section {
   margin-top: 108px;
-}
-
-tr:hover {
-  background: #0e8900 !important;
 }
 
 /* Media Queries */

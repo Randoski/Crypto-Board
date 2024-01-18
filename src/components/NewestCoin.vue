@@ -7,7 +7,7 @@
       Newest coin description Newest coin description Newest coin description
     </p>
 
-    <table class="table table-hover table-sub-section">
+    <table class="table table-sub-section">
       <thead>
         <!-- Table Head -->
         <tr>
@@ -22,77 +22,23 @@
         <tr>
           <td class="numbering">1</td>
           <td class="d-flex align-items-center">
-            <!-- Crypto Name -->
-            Bitcoin
-            <!-- Crypto Abbreviation -->
-            <span class="abbr">BTC</span>
+            <router-link to="/coin" class="table-link">
+              <!-- Crypto Name -->
+              Bitcoin
+              <!-- Crypto Abbreviation -->
+              <span class="abbr">BTC</span>
+            </router-link>
           </td>
 
           <!-- Price -->
-          <td>2.46 million NGN</td>
-
-          <!-- Time added -->
-          <td class="text-end">2 hr</td>
-        </tr>
-        <tr>
-          <td class="numbering">1</td>
-          <td class="d-flex align-items-center">
-            <!-- Crypto Name -->
-            Bitcoin
-            <!-- Crypto Abbreviation -->
-            <span class="abbr">BTC</span>
+          <td>
+            <router-link to="/coin" class="table-link"> 2.46 million NGN</router-link>
           </td>
 
-          <!-- Price -->
-          <td>2.46 million NGN</td>
-
-          <!-- Time added -->
-          <td class="text-end">2 hr</td>
-        </tr>
-        <tr>
-          <td class="numbering">1</td>
-          <td class="d-flex align-items-center">
-            <!-- Crypto Name -->
-            Bitcoin
-            <!-- Crypto Abbreviation -->
-            <span class="abbr">BTC</span>
+          <!-- Time Added -->
+          <td class="text-end">
+            <router-link to="/coin" class="table-link">2hr</router-link>
           </td>
-
-          <!-- Price -->
-          <td>2.46 million NGN</td>
-
-          <!-- Time added -->
-          <td class="text-end">2 hr</td>
-        </tr>
-        <tr>
-          <td class="numbering">1</td>
-          <td class="d-flex align-items-center">
-            <!-- Crypto Name -->
-            Bitcoin
-            <!-- Crypto Abbreviation -->
-            <span class="abbr">BTC</span>
-          </td>
-
-          <!-- Price -->
-          <td>2.46 million NGN</td>
-
-          <!-- Time added -->
-          <td class="text-end">2 hr</td>
-        </tr>
-        <tr>
-          <td class="numbering">1</td>
-          <td class="d-flex align-items-center">
-            <!-- Crypto Name -->
-            Bitcoin
-            <!-- Crypto Abbreviation -->
-            <span class="abbr">BTC</span>
-          </td>
-
-          <!-- Price -->
-          <td>2.46 million NGN</td>
-
-          <!-- Time added -->
-          <td class="text-end">2 hr</td>
         </tr>
       </tbody>
     </table>
