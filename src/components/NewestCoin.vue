@@ -2,7 +2,7 @@
   <div>
     <!-- Newest coin Heading -->
     <h2 class="section-header">Newest Coins</h2>
-    <!-- Description about the coinr  -->
+    <!-- Description about the coin  -->
     <p class="section-text">
       Newest coin description Newest coin description Newest coin description
     </p>
@@ -24,7 +24,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -39,7 +39,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -54,7 +54,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -69,7 +69,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -84,7 +84,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 

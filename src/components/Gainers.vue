@@ -1,8 +1,8 @@
 <template>
   <div>
     <!--All Gainers Heading -->
-    <h2 class="section-header">All Gainers</h2>
-    <!-- Description about the coinr  -->
+    <h2 class="section-header">Top Gainers</h2>
+    <!-- Description about the coin  -->
     <p class="section-text">
       All Gainers description All Gainers description All Gainers description
     </p>
@@ -24,7 +24,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -40,7 +40,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -56,7 +56,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -72,7 +72,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -88,7 +88,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 

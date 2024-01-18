@@ -99,6 +99,7 @@ export default {
 .q-a p {
   font-size: 10px;
   font-weight: bold;
+  color: rgb(69, 66, 66) !important;
 }
 
 @media (min-width: 850px) {

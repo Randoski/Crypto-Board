@@ -1,8 +1,8 @@
 <template>
   <div>
     <!--All Gainers Heading -->
-    <h2 class="section-header">All Losers</h2>
-    <!-- Description about the coinr  -->
+    <h2 class="section-header">Top Losers</h2>
+    <!-- Description about the coin  -->
     <p class="section-text">
       All Losers description All Losers description All Losers description
     </p>
@@ -24,7 +24,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -40,7 +40,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -56,7 +56,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -72,7 +72,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -88,7 +88,7 @@
           <td class="d-flex align-items-center">
             <!-- Crypto Name -->
             Bitcoin
-            <!-- Crypto Abbrevation -->
+            <!-- Crypto Abbreviation -->
             <span class="abbr">BTC</span>
           </td>
 
@@ -101,7 +101,7 @@
       </tbody>
     </table>
 
-    <!-- Redirect to All Gainers Page -->
+    <!-- Redirect to All Losers Page -->
     <div>
       <router-link to="/" class="cta">View all Losers</router-link>
     </div>
