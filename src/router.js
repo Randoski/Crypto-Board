@@ -9,16 +9,25 @@ const routes = [
         component: () => import('./views/Cryptocurrencies.vue'),
     },
 
+    // Learn
     {
         path: '/learn',
         name: 'Learn',
         component: () => import('./views/Learn.vue'),
     },
 
+    // Coin
     {
         path: '/coin',
         name: 'Coin',
         component: () => import('./views/Coin.vue'),
+    },
+
+    // 404
+    {
+        path: '/:pathMatch(.*)*',
+        name: '404',
+        component: () => import('./views/404.vue'),
     },
 ];
 

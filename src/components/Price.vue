@@ -232,7 +232,7 @@
               <!-- Value -->
               <td class="text-end value"><a href="#" class="link">Link</a></td>
               <td class="text-end value">
-                <router-link href="#" class="link">Link</router-link>
+                <router-link to="/" class="link">Link</router-link>
               </td>
             </tr>
           </tbody>

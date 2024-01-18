@@ -47,7 +47,7 @@
 
       <!-- Crypto Table -->
       <section class="mt-3">
-        <table class="table table-hover">
+        <table class="table">
           <thead>
             <!-- Table Head -->
             <tr>
@@ -463,6 +463,10 @@ td {
 /* Sub section */
 .sub-section {
   margin-top: 108px;
+}
+
+tr:hover {
+  background: #0e8900 !important;
 }
 
 /* Media Queries */

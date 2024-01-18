@@ -24,6 +24,7 @@
                 <router-link class="nav-link" to="/">Cryptocurrencies</router-link>
               </li>
 
+              <!-- Learn -->
               <li class="nav-item">
                 <router-link class="nav-link" to="/learn">Crypto 101</router-link>
               </li>
