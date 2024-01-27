@@ -28,9 +28,9 @@ h1 {
 }
 
 @media (min-width: 850x) {
-  .cont {
+  /* .cont {
     margin: 0 35px;
-  }
+  } */
   .nav-links {
     margin-left: 35px;
   }
@@ -46,4 +46,11 @@ h1 {
     font-size: 14px !important;
   }
 }
+
+/* @media (min-width: 590px) and (max-width: 1000px) {
+  body {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+} */
 </style>

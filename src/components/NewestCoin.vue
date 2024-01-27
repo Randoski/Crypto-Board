@@ -51,6 +51,10 @@
 </template>
 
 <style>
+.table-sub-section {
+  margin-top: 32px;
+}
+
 .section-header {
   font-weight: 600;
   font-size: 18px;
