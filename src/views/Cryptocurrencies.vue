@@ -5,6 +5,9 @@
       <h1>Some header for the coin type</h1>
       <p>Text description for the crypto</p>
 
+      <!--Stats -->
+      <Stats />
+
       <!-- Tabs -->
       <Tabs />
 
@@ -16,41 +19,45 @@
             <tr>
               <th></th>
               <th>Coin</th>
-              <th>Price</th>
-              <th>Market Cap</th>
+              <th class="text-end">Price</th>
+              <th class="text-end">Market Cap</th>
               <th class="text-end">24 hr</th>
             </tr>
           </thead>
           <!-- Table Body -->
           <tbody>
-            <tr>
-              <td class="numbering">1</td>
+            <tr v-for="coin in coins" :key="coin.uuid">
+              <td class="numbering">{{ coin.rank }}</td>
               <td class="d-flex align-items-center">
-                <router-link to="/coin" class="table-link">
+                <router-link to="/" class="table-link main-coin">
                   <!-- Crypto Image -->
-                  <img src="" alt="" />
+                  <img :src="coin.iconUrl" alt="coin icon" class="coin-img" />
                   <!-- Crypto Name -->
-                  Bitcoin
+
+                  {{ coin.name }}
                   <!-- Crypto Abbreviation -->
-                  <span class="abbr">BTC</span></router-link
+                  <span class="abbr">{{ coin.symbol }}</span></router-link
                 >
               </td>
 
               <!-- Price -->
-              <td>
-                <router-link to="/coin" class="table-link"> 2.46 million NGN</router-link>
+
+              <td class="text-end">
+                <router-link to="/coin" class="table-link"> {{ coin.price }}</router-link>
               </td>
 
               <!-- Market Cap -->
-              <td>
-                <router-link to="/coin" class="table-link"
-                  >805.57 Trillion NGN</router-link
-                >
+              <td class="text-end">
+                <router-link to="/coin" class="table-link text-end">{{
+                  coin.marketCap
+                }}</router-link>
               </td>
 
               <!-- 24 Hours -->
               <td class="text-end">
-                <router-link to="/coin" class="table-link">+2.5</router-link>
+                <router-link to="/coin" class="table-link">{{
+                  coin["24hVolume"]
+                }}</router-link>
               </td>
             </tr>
           </tbody>
@@ -103,6 +110,7 @@
 </template>
 
 <script>
+import Stats from "../components/Stats.vue";
 import Tabs from "../components/Tabs.vue";
 import NewestCoin from "../components/NewestCoin.vue";
 import Gainers from "../components/Gainers.vue";
@@ -110,10 +118,28 @@ import Losers from "../components/Losers.vue";
 
 export default {
   components: {
+    Stats,
     Tabs,
     NewestCoin,
     Gainers,
     Losers,
+  },
+
+  data() {
+    return {
+      coins: [],
+    };
+  },
+
+  mounted() {
+    fetch("https://api.coinranking.com/v2/coins")
+      .then((response) => response.json())
+      .then((data) => {
+        this.coins = data.data.coins;
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   },
 };
 </script>
@@ -159,15 +185,24 @@ td {
 
 /* Numbering */
 .numbering {
-  color: rgb(171, 171, 171) !important;
+  color: rgb(69, 66, 66) !important;
+}
+
+.main-coin {
+  color: #0e8900 !important;
+}
+.coin-img {
+  width: 16px;
+  margin-right: 4px;
 }
 
 /* Abbreviation  */
 .abbr {
-  font-size: 8px;
-  font-weight: 500;
+  color: rgb(69, 66, 66) !important;
+  font-size: 8px !important;
+  font-weight: 700 !important;
   text-transform: uppercase;
-  margin-left: 4px;
+  margin-left: 2px !important;
 }
 
 /* Pagination */
