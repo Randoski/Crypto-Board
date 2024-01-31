@@ -4,8 +4,7 @@
     <section>
       <p class="summary">
         <span>Summary - </span>
-        Lo rem ipsum dolor sit amet consectetur, adipisicing elit. Enim reiciendis nam cum
-        numquam voluptatibus quidem possimus
+        {{ description }}
       </p>
 
       <!-- Price Chart -->
@@ -21,7 +20,7 @@
           <!-- High -->
           <div class="col-sm-3 price-children">
             <p>High:</p>
-            <p class="price-value">N7,500</p>
+            <p class="price-value">{{ allTimeHigh.price }}</p>
           </div>
 
           <!-- Low-->
@@ -161,12 +160,66 @@
           <tbody>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">
-                <img src="" alt="" /> Bitcoin
-              </td>
+              <td class="d-flex align-items-center criteria">Coin Ranking</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">2.46 million NGN</td>
+              <td class="text-end value coin-value">{{ rank }}</td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">Price to BTC</td>
+
+              <!-- Value -->
+              <td class="text-end value coin-value">{{ btcPrice }}</td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">Price to NGN</td>
+
+              <!-- Value -->
+              <td class="text-end value coin-value">{{ rank }}</td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">24h Volume</td>
+
+              <!-- Value -->
+              <td class="text-end value coin-value">{{ $props["24hVolume"] }}</td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">Market Cap</td>
+
+              <!-- Value -->
+              <td class="text-end value coin-value">{{ marketCap }}</td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">Volume / Market cap</td>
+
+              <!-- Value -->
+              <td class="text-end value coin-value">{{ computedVolMarketCap }}</td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">Fully Diluted Market Cap</td>
+
+              <!-- Value -->
+              <td class="text-end value coin-value">{{ fullyDilutedMarketCap }}</td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">All Time High</td>
+
+              <!-- Value -->
+              <td class="text-end value coin-value">{{ allTimeHigh.price }}</td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">All Time High Date</td>
+
+              <!-- Value -->
+              <td class="text-end value coin-value">{{ allTimeHigh.timestamp }}</td>
             </tr>
           </tbody>
         </table>
@@ -187,35 +240,48 @@
           <tbody>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Bitcoin</td>
+              <td class="d-flex align-items-center criteria">Supply Verification</td>
 
               <!-- Value -->
-              <td class="text-end value">2.46 million NGN</td>
+              <td v-if="supply.confirmed === true" class="text-end value">
+                Verified Supply
+              </td>
+
+              <td v-else-if="supply.confirmed === false" class="text-end value">
+                Not Verified
+              </td>
+
+              <td v-else class="text-end value"></td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">Circulating Supply</td>
+
+              <!-- Value -->
+              <td class="text-end value">{{ supply.circulating }}</td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">Total Supply</td>
+
+              <!-- Value -->
+              <td class="text-end value">{{ supply.total }}</td>
+            </tr>
+            <tr>
+              <!-- Criteria -->
+              <td class="d-flex align-items-center criteria">Max Supply</td>
+
+              <!-- Value -->
+              <td class="text-end value">{{ supply.max }}</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- About Coin and Link -->
-    <section class="row grid-header">
-      <!-- About Coin -->
-      <div class="col-sm-5">
-        <!-- Coin Heading -->
-        <h2 class="price-page-heading">What is Bitcoin</h2>
-        <p class="price-page-desc value read-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad consequatur quisquam
-          voluptas repellat ipsam magnam non velit et eligendi illum excepturi quod
-          officiis exercitationem, accusamus atque vero! Vero ea officia earum labore
-        </p>
-        <router-link to="/" class="cta">Read more about BTC</router-link>
-      </div>
-
-      <!-- Page Partition -->
-      <div class="col-sm-2"></div>
-
-      <!-- Value Statistics -->
-      <div class="col-sm-5">
+    <!-- Links -->
+    <section class="grid-header">
+      <div>
         <!-- Value Statistics Heading -->
         <h2 class="price-page-heading">Links</h2>
 
@@ -223,24 +289,89 @@
         <table class="table table- table-sub-section">
           <!-- Table Body -->
           <tbody>
-            <tr>
+            <tr v-for="(link, index) in links" :key="index">
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">
-                <img src="" alt="" /> Bitcoin
+                {{ link.type }}
               </td>
 
               <!-- Value -->
-              <td class="text-end value"><a href="#" class="link">Link</a></td>
               <td class="text-end value">
-                <router-link to="/" class="link">Link</router-link>
+                <a :href="link.url" target="_blank">{{ link.name }}</a>
               </td>
             </tr>
+
+            <!-- Tags -->
+            <!-- <tr v-for="(tag, index) in tags" :key="index">
+              <td>{{ coin.tag }}</td>
+            </tr> -->
           </tbody>
         </table>
       </div>
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    computedVolMarketCap() {
+      if (!isNaN(parseFloat(this.btcPrice)) && !isNaN(parseFloat(this.marketCap))) {
+        return parseFloat(this["24hVolume"]) / parseFloat(this.marketCap);
+      } else {
+        return "";
+      }
+    },
+  },
+
+  props: {
+    price: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    allTimeHigh: {
+      type: Object,
+      default: () => ({}),
+    },
+    supply: {
+      type: Object,
+      default: () => ({}),
+    },
+    links: {
+      type: Array,
+      required: true,
+    },
+    tags: {
+      type: Object,
+      required: true,
+    },
+    rank: {
+      type: String,
+      required: true,
+    },
+    ["24hVolume"]: {
+      type: String,
+      required: true,
+    },
+    marketCap: {
+      type: String,
+      required: true,
+    },
+    btcPrice: {
+      type: String,
+      required: true,
+    },
+    fullyDilutedMarketCap: {
+      type: String,
+      required: true,
+    },
+  },
+};
+</script>
 
 <style>
 /* Summary*/

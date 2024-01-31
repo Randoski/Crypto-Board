@@ -29,7 +29,10 @@
             <tr v-for="coin in coins" :key="coin.uuid">
               <td class="numbering">{{ coin.rank }}</td>
               <td class="d-flex align-items-center">
-                <router-link to="/" class="table-link main-coin">
+                <router-link
+                  :to="{ name: 'Coin', params: { id: coin.uuid } }"
+                  class="table-link main-coin"
+                >
                   <!-- Crypto Image -->
                   <img :src="coin.iconUrl" alt="coin icon" class="coin-img" />
                   <!-- Crypto Name -->
@@ -43,21 +46,30 @@
               <!-- Price -->
 
               <td class="text-end">
-                <router-link to="/coin" class="table-link"> {{ coin.price }}</router-link>
+                <router-link
+                  :to="{ name: 'Coin', params: { id: coin.uuid } }"
+                  class="table-link"
+                >
+                  {{ coin.price }}</router-link
+                >
               </td>
 
               <!-- Market Cap -->
               <td class="text-end">
-                <router-link to="/coin" class="table-link text-end">{{
-                  coin.marketCap
-                }}</router-link>
+                <router-link
+                  :to="{ name: 'Coin', params: { id: coin.uuid } }"
+                  class="table-link text-end"
+                  >{{ coin.marketCap }}</router-link
+                >
               </td>
 
               <!-- 24 Hours -->
               <td class="text-end">
-                <router-link to="/coin" class="table-link">{{
-                  coin["24hVolume"]
-                }}</router-link>
+                <router-link
+                  :to="{ name: 'Coin', params: { id: coin.uuid } }"
+                  class="table-link"
+                  >{{ coin["24hVolume"] }}</router-link
+                >
               </td>
             </tr>
           </tbody>

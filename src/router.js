@@ -18,7 +18,7 @@ const routes = [
 
     // Coin
     {
-        path: '/coin/:uuid',
+        path: '/coin/:id',
         name: 'Coin',
         component: () => import('./views/Coin.vue'),
     },

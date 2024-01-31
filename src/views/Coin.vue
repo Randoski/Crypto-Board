@@ -9,19 +9,19 @@
               <!-- Image, name & Logo -->
               <div class="coin">
                 <div class="coin-head">
-                  <img src="" alt="" />
-                  <h2 class="crypto-name">Bitcoin</h2>
-                  <p class="coin-abbr">BTC</p>
+                  <img :src="coin.iconUrl" alt="" class="img-icon" />
+                  <h2 class="crypto-name">{{ coin.name }}</h2>
+                  <p class="coin-abbr">{{ coin.symbol }}</p>
                 </div>
                 <!-- Web Amount -->
                 <div>
-                  <p class="desktop-amount">4 million</p>
+                  <p class="desktop-amount">{{ coin.price }}</p>
                 </div>
               </div>
 
               <!-- Amount -->
               <div>
-                <p class="mobile-amount">4 million</p>
+                <p class="mobile-amount">{{ coin.price }}</p>
               </div>
             </div>
 
@@ -43,7 +43,17 @@
               <!-- Price -->
               <div id="price" class="container tab-pane active">
                 <div>
-                  <Price />
+                  <Price
+                    :description="coin.description"
+                    :allTimeHigh="coin.allTimeHigh"
+                    :supply="coin.supply"
+                    :links="coin.links"
+                    :rank="coin.rank"
+                    :btcPrice="coin.btcPrice"
+                    :24hVolume="coin['24hVolume']"
+                    :marketCap="coin.marketCap"
+                    :fullyDilutedMarketCap="coin.fullyDilutedMarketCap"
+                  />
                 </div>
               </div>
 
@@ -69,6 +79,34 @@ export default {
   components: {
     Price,
     About,
+  },
+
+  data() {
+    return {
+      coin: {},
+    };
+  },
+
+  mounted() {
+    const coinId = this.$route.params.id;
+    this.fetchCoinDetails(coinId);
+  },
+
+  methods: {
+    fetchCoinDetails(coinId) {
+      fetch(`https://api.coinranking.com/v2/coin/${coinId}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status === "success") {
+            this.coin = data.data.coin;
+          } else {
+            console.error("API error:", data.error);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    },
   },
 };
 </script>
@@ -141,6 +179,11 @@ export default {
 
 .temporary-adjust2 {
   margin-left: -13px !important;
+}
+
+.img-icon {
+  width: 24px;
+  margin-right: 8px;
 }
 
 /* Media Queries */
