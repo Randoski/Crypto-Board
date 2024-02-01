@@ -8,7 +8,9 @@
           <!-- 404 Message -->
           <div>
             <h2>Ooops...</h2>
-            <p>This page does not have any cont at the moment, please check back later</p>
+            <p>
+              This page does not have any content at the moment, please check back later
+            </p>
 
             <!-- CTA -->
             <div class="cta-container">

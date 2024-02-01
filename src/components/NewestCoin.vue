@@ -1,101 +1,72 @@
 <template>
   <div>
-    <!-- Newest coin Heading -->
+    <!--Newest Coin  Heading -->
     <h2 class="section-header">Newest Coins</h2>
     <!-- Description about the coin  -->
     <p class="section-text">
-      Newest coin description Newest coin description Newest coin description
+      Newest Coin description Newest Coin description Newest Coin description
     </p>
-
-    <table class="table table-sub-section">
-      <thead>
-        <!-- Table Head -->
-        <tr>
-          <th></th>
-          <th>Coin</th>
-          <th>Price</th>
-          <th class="text-end">Added</th>
-        </tr>
-      </thead>
-      <!-- Table Body -->
-      <tbody>
-        <tr>
-          <td class="numbering">1</td>
-          <td class="d-flex align-items-center">
-            <router-link to="/coin" class="table-link">
-              <!-- Crypto Name -->
-              Bitcoin
-              <!-- Crypto Abbreviation -->
-              <span class="abbr">BTC</span>
-            </router-link>
-          </td>
-
-          <!-- Price -->
-          <td>
-            <router-link to="/coin" class="table-link"> 2.46 million NGN</router-link>
-          </td>
-
-          <!-- Time Added -->
-          <td class="text-end">
-            <router-link to="/coin" class="table-link">2hr</router-link>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- Redirect to Newest Coins Page -->
     <div>
-      <router-link to="/" class="cta">View Newest Coins</router-link>
+      <div v-if="coins.length">
+        <table class="table table-sub-section">
+          <thead>
+            <!-- Table Head -->
+            <tr>
+              <th></th>
+              <th>Coin</th>
+              <th>Price</th>
+              <th class="text-end">Added</th>
+            </tr>
+          </thead>
+          <!-- Table Body -->
+          <tbody>
+            <tr>
+              <td class="numbering">1</td>
+              <td class="d-flex align-items-center">
+                <router-link to="/coin" class="table-link">
+                  <!-- Crypto Name -->
+                  Bitcoin
+                  <!-- Crypto Abbreviation -->
+                  <span class="abbr">BTC</span>
+                </router-link>
+              </td>
+
+              <!-- Price -->
+              <td>
+                <router-link to="/coin" class="table-link"> 2.46 million NGN</router-link>
+              </td>
+
+              <!-- Increase -->
+              <td class="text-end">
+                <router-link to="/coin" class="table-link"> +5.72%</router-link>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Table Loading State -->
+      <div v-else class="loading-indicator">
+        <!-- Loading indicator content -->
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Fetching-coins...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Redirect to Newest CoinPage -->
+    <div v-if="coins.length">
+      <router-link to="/" class="cta">View all New Coins</router-link>
     </div>
   </div>
 </template>
 
-<style>
-.table-sub-section {
-  margin-top: 32px;
-}
-
-.section-header {
-  font-weight: 600;
-  font-size: 18px;
-  color: rgb(69, 66, 66);
-}
-
-.section-text {
-  font-size: 12px !important;
-  font-weight: 600;
-  width: 85%;
-  color: rgb(69, 66, 66);
-}
-
-.cta {
-  display: block;
-  width: 100%;
-  text-decoration: none;
-  color: rgb(69, 66, 66);
-  font-size: 12px;
-  font-weight: 600;
-  text-align: center !important;
-  border: 1px solid rgb(174, 173, 173);
-  border-radius: 4px;
-  padding: 8px 0;
-  margin: 32px 0 88px;
-}
-
-.cta:hover {
-  background-color: rgba(14, 137, 0, 0.2);
-  border: 1px solid transparent;
-}
-
-@media (min-width: 850px) {
-  /* Page Settings */
-  .table-sub-section td {
-    font-size: 12px !important;
-    font-weight: 600;
-  }
-  .table-sub-section th {
-    font-size: 12px !important;
-    font-weight: 600;
-  }
-}
-</style>
+<script>
+export default {
+  data() {
+    return {
+      coins: {},
+    };
+  },
+};
+</script>

@@ -39,7 +39,7 @@
             </ul>
 
             <!-- Tab panes -->
-            <div class="tab-content tab temporary-adjust2">
+            <div v-if="coin.length" class="tab-content tab temporary-adjust2">
               <!-- Price -->
               <div id="price" class="container tab-pane active">
                 <div>
@@ -62,6 +62,14 @@
                 <div>
                   <About />
                 </div>
+              </div>
+            </div>
+
+            <!-- Loading State -->
+            <div v-else class="loading-indicator loading-settings">
+              <!-- Loading indicator content -->
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Fetching-coins...</span>
               </div>
             </div>
           </div>
@@ -112,14 +120,21 @@ export default {
 </script>
 
 <style>
+.loading-settings {
+  height: 80vh;
+  width: 80vw;
+}
+
 .coin-head {
   display: flex;
   align-items: baseline;
 }
+
 .coin-abbr {
   margin-left: 4px;
   font-size: 12px !important;
 }
+
 .coin-heading {
   margin-top: 112px !important;
 }

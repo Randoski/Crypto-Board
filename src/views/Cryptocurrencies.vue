@@ -13,67 +13,77 @@
 
       <!-- Crypto Table -->
       <section class="table-container">
-        <table class="table">
-          <thead>
-            <!-- Table Head -->
-            <tr>
-              <th></th>
-              <th>Coin</th>
-              <th class="text-end">Price</th>
-              <th class="text-end">Market Cap</th>
-              <th class="text-end">24 hr</th>
-            </tr>
-          </thead>
-          <!-- Table Body -->
-          <tbody>
-            <tr v-for="coin in coins" :key="coin.uuid">
-              <td class="numbering">{{ coin.rank }}</td>
-              <td class="d-flex align-items-center">
-                <router-link
-                  :to="{ name: 'Coin', params: { id: coin.uuid } }"
-                  class="table-link main-coin"
-                >
-                  <!-- Crypto Image -->
-                  <img :src="coin.iconUrl" alt="coin icon" class="coin-img" />
-                  <!-- Crypto Name -->
+        <div v-if="coins.length">
+          <table class="table">
+            <thead>
+              <!-- Table Head -->
+              <tr>
+                <th></th>
+                <th>Coin</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">Market Cap</th>
+                <th class="text-end">24 hr</th>
+              </tr>
+            </thead>
+            <!-- Table Body -->
+            <tbody>
+              <tr v-for="coin in coins" :key="coin.uuid">
+                <td class="numbering">{{ coin.rank }}</td>
+                <td class="d-flex align-items-center">
+                  <router-link
+                    :to="{ name: 'Coin', params: { id: coin.uuid } }"
+                    class="table-link main-coin"
+                  >
+                    <!-- Crypto Image -->
+                    <img :src="coin.iconUrl" alt="coin icon" class="coin-img" />
+                    <!-- Crypto Name -->
 
-                  {{ coin.name }}
-                  <!-- Crypto Abbreviation -->
-                  <span class="abbr">{{ coin.symbol }}</span></router-link
-                >
-              </td>
+                    {{ coin.name }}
+                    <!-- Crypto Abbreviation -->
+                    <span class="abbr">{{ coin.symbol }}</span></router-link
+                  >
+                </td>
 
-              <!-- Price -->
+                <!-- Price -->
 
-              <td class="text-end">
-                <router-link
-                  :to="{ name: 'Coin', params: { id: coin.uuid } }"
-                  class="table-link"
-                >
-                  {{ coin.price }}</router-link
-                >
-              </td>
+                <td class="text-end">
+                  <router-link
+                    :to="{ name: 'Coin', params: { id: coin.uuid } }"
+                    class="table-link"
+                  >
+                    {{ coin.price }}</router-link
+                  >
+                </td>
 
-              <!-- Market Cap -->
-              <td class="text-end">
-                <router-link
-                  :to="{ name: 'Coin', params: { id: coin.uuid } }"
-                  class="table-link text-end"
-                  >{{ coin.marketCap }}</router-link
-                >
-              </td>
+                <!-- Market Cap -->
+                <td class="text-end">
+                  <router-link
+                    :to="{ name: 'Coin', params: { id: coin.uuid } }"
+                    class="table-link text-end"
+                    >{{ coin.marketCap }}</router-link
+                  >
+                </td>
 
-              <!-- 24 Hours -->
-              <td class="text-end">
-                <router-link
-                  :to="{ name: 'Coin', params: { id: coin.uuid } }"
-                  class="table-link"
-                  >{{ coin["24hVolume"] }}</router-link
-                >
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                <!-- 24 Hours -->
+                <td class="text-end">
+                  <router-link
+                    :to="{ name: 'Coin', params: { id: coin.uuid } }"
+                    class="table-link"
+                    >{{ coin["24hVolume"] }}</router-link
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Loading State -->
+        <div v-else class="loading-indicator">
+          <!-- Loading indicator content -->
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Fetching-coins...</span>
+          </div>
+        </div>
       </section>
 
       <!-- Pagination -->
@@ -85,9 +95,11 @@
           <li class="page-item pag">
             <a class="page-link pag" href="#">Previous</a>
           </li>
-          <li class="page-item"><a class="page-link pag" href="#">1</a></li>
-          <li class="page-item active">
-            <a class="page-link pag active-pag" href="#">2</a>
+          <li class="page-item">
+            <a class="page-link pag activepag" href="#">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link pag" href="#">2</a>
           </li>
           <li class="page-item"><a class="page-link pag" href="#">3</a></li>
           <li class="page-item"><a class="page-link pag" href="#">4</a></li>
@@ -157,6 +169,16 @@ export default {
 </script>
 
 <style>
+/* Loading Indicator */
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #0e8900;
+}
+
 /* Page Settings */
 .page-settings {
   margin-top: 125px;
@@ -200,9 +222,17 @@ td {
   color: rgb(69, 66, 66) !important;
 }
 
-.main-coin {
+.main-coin,
+.main-coin:active,
+.main-coin:visited {
   color: #0e8900 !important;
 }
+
+.main-coin:hover {
+  color: rgb(69, 66, 66) !important;
+
+}
+
 .coin-img {
   width: 16px;
   margin-right: 4px;
@@ -228,7 +258,7 @@ td {
 }
 
 /* Active Pagination */
-.active-pag {
+.activepag {
   color: white !important;
   background: #0e8900 !important;
   border-radius: 4px;
