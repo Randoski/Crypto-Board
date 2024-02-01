@@ -23,16 +23,30 @@ const routes = [
         component: () => import('./views/Coin.vue'),
     },
 
-    // favorites
+    // Favorites
     {
         path: '/favorites',
         name: 'Favorites',
         component: () => import('./views/Favorites.vue'),
     },
 
+    // Blog
+    {
+        path: '/news',
+        name: 'News',
+        component: () => import('./views/News.vue'),
+    },
 
     {
-        // path: '/:pathMatch(.*)*',
+        path: '/read:id', 
+        name: 'ReadNews', 
+        component: () => import('./views/ReadNews.vue'),
+        props: true
+
+    },
+
+// 404 Page
+    {
         path: '/:pathMatch(.*)',
         name: 'NotFound',
         component: () => import('./views/NotFound.vue'),

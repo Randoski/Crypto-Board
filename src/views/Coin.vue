@@ -39,7 +39,7 @@
             </ul>
 
             <!-- Tab panes -->
-            <div v-if="coin.length" class="tab-content tab temporary-adjust2">
+            <div v-if="coin" class="tab-content tab temporary-adjust2">
               <!-- Price -->
               <div id="price" class="container tab-pane active">
                 <div>

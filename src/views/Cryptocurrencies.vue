@@ -77,7 +77,7 @@
           </table>
         </div>
 
-        <!-- Table Loading State -->
+        <!--  Loading State -->
         <div v-else class="loading-indicator">
           <!-- Loading indicator content -->
           <div class="spinner-border" role="status">
@@ -230,7 +230,6 @@ td {
 
 .main-coin:hover {
   color: rgb(69, 66, 66) !important;
-
 }
 
 .coin-img {

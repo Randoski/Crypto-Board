@@ -54,6 +54,16 @@
                 </router-link>
               </li>
 
+              <!-- News -->
+              <li class="nav-item">
+                <router-link
+                  :class="{ 'active-link': isRouteActive('/news') }"
+                  class="nav-link"
+                  to="/news"
+                  >Crypto News
+                </router-link>
+              </li>
+
               <!-- Favorites (mobile) -->
               <li class="nav-item">
                 <router-link
