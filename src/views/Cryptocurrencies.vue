@@ -2,8 +2,8 @@
   <div class="container page-query">
     <!-- Page headings -->
     <div class="page-settings">
-      <h1>All Cryptocurrencies Prices</h1>
-      <p>We've compilled a list of Cryptocurrencies just for you.</p>
+      <h1 class="page-text-header">All Cryptocurrencies Prices</h1>
+      <p class="page-text">We've compilled a list of Cryptocurrencies just for you.</p>
 
       <!--Stats -->
       <Stats />
@@ -51,7 +51,7 @@
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
                     class="table-link"
                   >
-                    ${{ coin.price }}</router-link
+                    ${{ formatNumber(coin.price) }}</router-link
                   >
                 </td>
 
@@ -60,7 +60,7 @@
                   <router-link
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
                     class="table-link text-end"
-                    >${{ coin.marketCap }}</router-link
+                    >${{ shortenNumber(coin.marketCap) }}</router-link
                   >
                 </td>
 
@@ -69,9 +69,13 @@
                   <router-link
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
                     class="table-link"
+                    :class="{
+                      'red-text': coin.change < 0,
+                      'green-text': coin.change >= 0,
+                    }"
                   >
-                    {{ coin.change }}%</router-link
-                  >
+                    <span v-if="coin.change >= 0">+</span>{{ coin.change }}%
+                  </router-link>
                 </td>
               </tr>
             </tbody>
@@ -166,6 +170,45 @@ export default {
         console.error("Error fetching data:", error);
       });
   },
+
+  methods: {
+    // Format Number
+    formatNumber(number) {
+      if (number !== null && number !== undefined && !isNaN(number)) {
+        const parts = parseFloat(number).toFixed(2).toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+      }
+      return "";
+    },
+
+    // Shorten Number
+    shortenNumber(number) {
+      const suffixes = ["", "k", "m", "b", "t"];
+
+      let suffixIndex = 0;
+      while (Math.abs(number) >= 1000 && suffixIndex < suffixes.length - 1) {
+        number /= 1000;
+        suffixIndex++;
+      }
+
+      let formattedNumber;
+      if (number >= 1000) {
+        formattedNumber = parseFloat(number.toFixed(3));
+      } else if (number >= 10) {
+        formattedNumber = Math.floor(number);
+      } else if (number >= 1) {
+        formattedNumber = parseFloat(number.toFixed(2));
+      } else {
+        formattedNumber = parseFloat(number.toFixed(3));
+      }
+
+      return (
+        formattedNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+        suffixes[suffixIndex]
+      );
+    },
+  },
 };
 </script>
 
@@ -183,6 +226,15 @@ export default {
 /* Page Settings */
 .page-settings {
   margin-top: 125px;
+}
+
+.page-text-header {
+  color: #0e8900 !important;
+}
+
+.page-text {
+  font-weight: 600;
+  color: rgb(100, 100, 100) !important;
 }
 
 .table-container {
@@ -268,6 +320,14 @@ td {
 /* Sub section */
 .sub-section {
   margin-top: 108px;
+}
+
+.red-text {
+  color: red !important;
+}
+
+.green-text {
+  color: #0e8900 !important;
 }
 
 /* Media Queries */

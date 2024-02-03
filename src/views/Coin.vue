@@ -15,13 +15,13 @@
                 </div>
                 <!-- Web Amount -->
                 <div>
-                  <p class="desktop-amount">${{ coin.price }}</p>
+                  <p class="desktop-amount">${{ formatNumber(coin.price) }}</p>
                 </div>
               </div>
 
               <!-- Amount -->
               <div>
-                <p class="mobile-amount">${{ coin.price }}</p>
+                <p class="mobile-amount">${{ formatNumber(coin.price) }}</p>
               </div>
             </div>
 
@@ -51,6 +51,7 @@
                     :rank="coin.rank"
                     :btcPrice="coin.btcPrice"
                     :price="coin.price"
+                    :symbol="coin.symbol"
                     :24hVolume="coin['24hVolume']"
                     :marketCap="coin.marketCap"
                     :fullyDilutedMarketCap="coin.fullyDilutedMarketCap"
@@ -115,6 +116,16 @@ export default {
         .catch((error) => {
           console.error("Error fetching data:", error);
         });
+    },
+
+    // Format Number
+    formatNumber(number) {
+      if (number !== null && number !== undefined && !isNaN(number)) {
+        const parts = parseFloat(number).toFixed(2).toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+      }
+      return "";
     },
   },
 };

@@ -20,7 +20,7 @@
           <!-- High -->
           <div class="col-sm-3 price-children">
             <p>High:</p>
-            <p class="price-value">${{ allTimeHigh.price }}</p>
+            <p class="price-value">${{ formatNumber(allTimeHigh.price) }}</p>
           </div>
 
           <!-- Low-->
@@ -112,11 +112,17 @@
               <td class="d-flex align-items-center criteria">Supply Verification</td>
 
               <!-- Value -->
-              <td v-if="supply.confirmed === true" class="text-end value">
+              <td
+                v-if="supply.confirmed === true"
+                class="text-end value verified"
+              >
                 Verified Supply
               </td>
 
-              <td v-else-if="supply.confirmed === false" class="text-end value">
+              <td
+                v-else-if="supply.confirmed === false"
+                class="text-end value unverified"
+              >
                 Not Verified
               </td>
 
@@ -127,21 +133,25 @@
               <td class="d-flex align-items-center criteria">Circulating Supply</td>
 
               <!-- Value -->
-              <td class="text-end value">{{ supply.circulating }}</td>
+              <td class="text-end value">
+                {{ shortenNumber(supply.circulating) }} {{ symbol }}
+              </td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">Total Supply</td>
 
               <!-- Value -->
-              <td class="text-end value">{{ supply.total }}</td>
+              <td class="text-end value">
+                {{ shortenNumber(supply.total) }} {{ symbol }}
+              </td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">Max Supply</td>
 
               <!-- Value -->
-              <td class="text-end value">{{ supply.max }}</td>
+              <td class="text-end value">{{ shortenNumber(supply.max) }} {{ symbol }}</td>
             </tr>
           </tbody>
         </table>
@@ -165,63 +175,75 @@
               <td class="d-flex align-items-center criteria">Coin Ranking</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">{{ rank }}</td>
+              <td class="text-end value coin-value">
+                {{ formatNumberNonDecimal(rank) }}
+              </td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">Price to BTC</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">{{ btcPrice }} BTC</td>
+              <td class="text-end value coin-value">{{ formatNumber(btcPrice) }} BTC</td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">Price to USD</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">${{ price }}</td>
+              <td class="text-end value coin-value">${{ formatNumber(price) }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">24h Volume</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">$ {{ $props["24hVolume"] }}</td>
+              <td class="text-end value coin-value">
+                $ {{ shortenNumber($props["24hVolume"]) }}
+              </td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">Market Cap</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">$ {{ marketCap }}</td>
+              <td class="text-end value coin-value">$ {{ shortenNumber(marketCap) }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">Volume / Market cap</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">{{ computedVolMarketCap }}</td>
+              <td class="text-end value coin-value">
+                {{ formatNumber(computedVolMarketCap) }}
+              </td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">Fully Diluted Market Cap</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">$ {{ fullyDilutedMarketCap }}</td>
+              <td class="text-end value coin-value">
+                $ {{ shortenNumber(fullyDilutedMarketCap) }}
+              </td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">All Time High</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">$ {{ allTimeHigh.price }}</td>
+              <td class="text-end value coin-value">
+                $ {{ shortenNumber(allTimeHigh.price) }}
+              </td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">All Time High Date</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">{{ allTimeHigh.timestamp }}</td>
+              <td class="text-end value coin-value">
+                {{ formatDate(allTimeHigh.timestamp) }}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -277,6 +299,87 @@ export default {
     },
   },
 
+  methods: {
+    formatNumber(number) {
+      if (number !== null && number !== undefined && !isNaN(number)) {
+        const parts = parseFloat(number).toFixed(2).toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+      }
+      return "";
+    },
+
+    formatNumberNonDecimal(number) {
+      if (number !== null && number !== undefined && !isNaN(number)) {
+        const parts = parseFloat(number).toFixed(2).toString().split(".");
+        const integerPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        // Check if there is a decimal part and it is not .00
+        const decimalPart = parts[1] && parts[1] !== "00" ? "." + parts[1] : "";
+
+        return integerPart + decimalPart;
+      }
+      return "";
+    },
+
+    // Shorten Number
+    shortenNumber(number) {
+      if (typeof number === "undefined" || number === null) {
+        return "";
+      }
+
+      const suffixes = ["", "k", "m", "b", "t"];
+      let suffixIndex = 0;
+
+      while (Math.abs(number) >= 1000 && suffixIndex < suffixes.length - 1) {
+        number /= 1000;
+        suffixIndex++;
+      }
+
+      let formattedNumber;
+
+      if (number >= 1000) {
+        formattedNumber = parseFloat(number.toFixed(1));
+      } else if (number >= 10) {
+        formattedNumber = Math.floor(number);
+      } else if (number >= 1) {
+        formattedNumber = parseFloat(number.toFixed(1));
+        formattedNumber = parseFloat(number.toFixed(2));
+      }
+
+      return (
+        formattedNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+        suffixes[suffixIndex]
+      );
+    },
+
+    // Format Date,
+    formatDate(timestamp) {
+      // Check if the timestamp is a valid number and finite
+      if (typeof timestamp !== "number" || !isFinite(timestamp)) {
+        return "Invalid Date";
+      }
+
+      // Convert Unix timestamp to milliseconds
+      const milliseconds = timestamp * 1000;
+
+      // Create a new Date object
+      const dateObject = new Date(milliseconds);
+
+      // Extract date components
+      const year = dateObject.getFullYear();
+      const month = new Intl.DateTimeFormat("en-US", { month: "short" }).format(
+        dateObject
+      );
+      const day = dateObject.getDate();
+
+      // Formatted date string
+      const formattedDate = `${day} ${month}, ${year}`;
+
+      return formattedDate;
+    },
+  },
+
   props: {
     price: {
       type: String,
@@ -322,6 +425,10 @@ export default {
       type: String,
       required: true,
     },
+    symbol: {
+      type: String,
+      required: true,
+    },
     fullyDilutedMarketCap: {
       type: String,
       required: true,
@@ -360,10 +467,15 @@ export default {
 }
 
 .price-page-heading {
-  color: rgb(69, 66, 66);
+  color: #0e8900 !important;
   margin-top: 40px;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
+}
+
+.price-page-desc {
+  font-weight: 500;
+  color: rgb(69, 66, 66) !important;
 }
 
 .coin-value {
@@ -473,7 +585,7 @@ option {
   background-color: #0e8a00;
   border: 1px solid #0e8a00;
 }
-Fpre .cal-btn button:hover,
+.cal-btn button:hover,
 .cal-btn button:focus {
   background: transparent;
   border: 1px solid transparent;
@@ -514,6 +626,7 @@ Fpre .cal-btn button:hover,
 
 .criteria {
   font-size: 14px;
+  font-weight: 500;
   color: rgb(69, 66, 66) !important;
 }
 
@@ -572,5 +685,13 @@ Fpre .cal-btn button:hover,
 .ext-link-styles {
   color: #0e8900 !important;
   text-decoration: none !important;
+}
+
+.verified {
+  color: #0e8900  !important;
+}
+
+.unverified {
+  color: red !important;
 }
 </style>
