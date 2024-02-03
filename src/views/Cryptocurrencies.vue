@@ -2,8 +2,8 @@
   <div class="container page-query">
     <!-- Page headings -->
     <div class="page-settings">
-      <h1>Some header for the coin type</h1>
-      <p>Text description for the crypto</p>
+      <h1>All Cryptocurrencies Prices</h1>
+      <p>We've compilled a list of Cryptocurrencies just for you.</p>
 
       <!--Stats -->
       <Stats />
@@ -51,7 +51,7 @@
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
                     class="table-link"
                   >
-                    {{ coin.price }}</router-link
+                    ${{ coin.price }}</router-link
                   >
                 </td>
 
@@ -60,7 +60,7 @@
                   <router-link
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
                     class="table-link text-end"
-                    >{{ coin.marketCap }}</router-link
+                    >${{ coin.marketCap }}</router-link
                   >
                 </td>
 
@@ -69,7 +69,8 @@
                   <router-link
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
                     class="table-link"
-                    >{{ coin["24hVolume"] }}</router-link
+                  >
+                    {{ coin.change }}%</router-link
                   >
                 </td>
               </tr>

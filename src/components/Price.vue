@@ -20,7 +20,7 @@
           <!-- High -->
           <div class="col-sm-3 price-children">
             <p>High:</p>
-            <p class="price-value">{{ allTimeHigh.price }}</p>
+            <p class="price-value">${{ allTimeHigh.price }}</p>
           </div>
 
           <!-- Low-->
@@ -91,7 +91,7 @@
           </div>
 
           <!-- Calculator error -->
-          <div class="error"><p>To throw errors</p></div>
+          <!-- <div class="error"><p>To throw errors</p></div> -->
         </div>
       </div>
 
@@ -172,28 +172,28 @@
               <td class="d-flex align-items-center criteria">Price to BTC</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">{{ btcPrice }}</td>
+              <td class="text-end value coin-value">{{ btcPrice }} BTC</td>
             </tr>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Price to NGN</td>
+              <td class="d-flex align-items-center criteria">Price to USD</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">{{ rank }}</td>
+              <td class="text-end value coin-value">${{ price }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">24h Volume</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">{{ $props["24hVolume"] }}</td>
+              <td class="text-end value coin-value">$ {{ $props["24hVolume"] }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">Market Cap</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">{{ marketCap }}</td>
+              <td class="text-end value coin-value">$ {{ marketCap }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
@@ -207,14 +207,14 @@
               <td class="d-flex align-items-center criteria">Fully Diluted Market Cap</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">{{ fullyDilutedMarketCap }}</td>
+              <td class="text-end value coin-value">$ {{ fullyDilutedMarketCap }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">All Time High</td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">{{ allTimeHigh.price }}</td>
+              <td class="text-end value coin-value">$ {{ allTimeHigh.price }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
@@ -248,7 +248,9 @@
 
               <!-- Value -->
               <td class="text-end value">
-                <a :href="link.url" target="_blank">{{ link.name }}</a>
+                <a :href="link.url" target="_blank" class="ext-link-styles"
+                  >{{ link.name }}
+                </a>
               </td>
             </tr>
 
@@ -316,6 +318,10 @@ export default {
       type: String,
       required: true,
     },
+    price: {
+      type: String,
+      required: true,
+    },
     fullyDilutedMarketCap: {
       type: String,
       required: true,
@@ -332,8 +338,6 @@ export default {
   justify-content: center;
   color: #0e8900;
 }
-
-
 
 /* Summary*/
 .summary {
@@ -563,5 +567,10 @@ Fpre .cal-btn button:hover,
 .link:active,
 .link:visited {
   color: #0e8900;
+}
+
+.ext-link-styles {
+  color: #0e8900 !important;
+  text-decoration: none !important;
 }
 </style>

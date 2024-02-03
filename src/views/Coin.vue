@@ -15,13 +15,13 @@
                 </div>
                 <!-- Web Amount -->
                 <div>
-                  <p class="desktop-amount">{{ coin.price }}</p>
+                  <p class="desktop-amount">${{ coin.price }}</p>
                 </div>
               </div>
 
               <!-- Amount -->
               <div>
-                <p class="mobile-amount">{{ coin.price }}</p>
+                <p class="mobile-amount">${{ coin.price }}</p>
               </div>
             </div>
 
@@ -50,6 +50,7 @@
                     :links="coin.links"
                     :rank="coin.rank"
                     :btcPrice="coin.btcPrice"
+                    :price="coin.price"
                     :24hVolume="coin['24hVolume']"
                     :marketCap="coin.marketCap"
                     :fullyDilutedMarketCap="coin.fullyDilutedMarketCap"

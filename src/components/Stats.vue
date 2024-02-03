@@ -8,12 +8,12 @@
 
       <div class="stats-design col-sm-2">
         <p>Total Market Cap</p>
-        <p>{{ stats.totalMarketCap }}</p>
+        <p>${{ stats.totalMarketCap }}</p>
       </div>
 
       <div class="stats-design col-sm-2">
         <p>24 Hours Vol</p>
-        <p>{{ stats.total24hVolume }}</p>
+        <p>${{ stats.total24hVolume }}</p>
       </div>
     </section>
   </div>
