@@ -37,6 +37,7 @@ const routes = [
         component: () => import('./views/Stablecoin.vue'),
     },
 
+
     // Nft
     {
         path: '/nft',
