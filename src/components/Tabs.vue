@@ -1,10 +1,17 @@
 <template>
   <div>
     <section class="tablet tab-container">
-      <div class="tabs active-tab">
+      <!-- Default state for the "Cryptocurrencies" tab -->
+      <div class="tabs" :class="{ 'active-tab': $route.path === '/' }">
         <router-link to="/" class="tabs-link">Cryptocurrencies</router-link>
       </div>
-      <div v-for="link in links" :key="link" class="tabs active-tab">
+      <!-- Loop through other tabs and apply styling based on active route -->
+      <div
+        v-for="link in links"
+        :key="link"
+        class="tabs"
+        :class="{ 'active-tab': $route.path === '/' + link }"
+      >
         <router-link :to="'/' + link" class="tabs-link">{{ link }}</router-link>
       </div>
     </section>
@@ -71,7 +78,7 @@ export default {
 /* Tabs */
 .tabs {
   margin-right: 10px;
-  background: transparent;
+  background: rgba(14, 137, 0, 0.2); /* Default light green background */
   border-radius: 6px;
   padding: 6px 12px;
   cursor: pointer;
@@ -79,10 +86,9 @@ export default {
   border: 1px solid transparent;
 }
 
-/* Tab hover */
-.tabs:hover {
-  color: white;
-  background-color: rgba(14, 137, 0, 0.2);
+/* Active Tab link */
+.active-tab {
+  background: #0e8900; /* Dark green background for active tab */
 }
 
 /* Tab links */
@@ -91,13 +97,6 @@ export default {
   text-decoration: none;
   white-space: nowrap;
   overflow: visible;
-}
-
-/* Active Tab link */
-.active-tab,
-.active-tab:hover {
-  background: #0e8900;
-  color: white;
 }
 
 /* Active Tab Link */
