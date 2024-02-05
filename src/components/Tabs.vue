@@ -4,42 +4,41 @@
       <div class="tabs active-tab">
         <router-link to="/" class="tabs-link">Cryptocurrencies</router-link>
       </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">Gainers</router-link>
-      </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">Losers</router-link>
-      </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">BRC-20</router-link>
-      </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">DRC-20</router-link>
-      </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">SRC-20</router-link>
-      </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">ASC-20</router-link>
-      </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">Layer-1</router-link>
-      </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">Layer-2</router-link>
-      </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">RWA</router-link>
-      </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">Meme</router-link>
-      </div>
-      <div class="tabs">
-        <router-link to="/" class="tabs-link">AI</router-link>
+      <div v-for="link in links" :key="link" class="tabs active-tab">
+        <router-link :to="'/' + link" class="tabs-link">{{ link }}</router-link>
       </div>
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      links: [
+        "defi",
+        "stablecoin",
+        "nft",
+        "dex",
+        "exchange",
+        "staking",
+        "dao",
+        "meme",
+        "privacy",
+        "metaverse",
+        "gaming",
+        "wrapped",
+        "layer-1",
+        "layer-2",
+        "fan-token",
+        "football-club",
+        "web3",
+        "social",
+      ],
+    };
+  },
+};
+</script>
 
 <style>
 /* Tab */

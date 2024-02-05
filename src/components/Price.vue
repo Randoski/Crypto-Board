@@ -39,11 +39,14 @@
     </section>
 
     <!-- Chart -->
-    <section>
+    <section class="graph">
       <!-- Graph -->
-      <div></div>
-      <!-- Time Frames -->
-      <div></div>
+      <div>
+        <line-chart
+          :data="{ '2017-05-13': 2, '2017-05-14': 5 }"
+          :colors="['#0e8900']"
+        ></line-chart>
+      </div>
     </section>
 
     <!-- Calculator and Price performance -->
@@ -112,10 +115,7 @@
               <td class="d-flex align-items-center criteria">Supply Verification</td>
 
               <!-- Value -->
-              <td
-                v-if="supply.confirmed === true"
-                class="text-end value verified"
-              >
+              <td v-if="supply.confirmed === true" class="text-end value verified">
                 Verified Supply
               </td>
 
@@ -500,6 +500,10 @@ export default {
   margin-left: 8px;
 }
 
+.graph {
+  margin-top: 48px;
+}
+
 .heading-cont {
   margin-top: 32px;
 }
@@ -688,7 +692,7 @@ option {
 }
 
 .verified {
-  color: #0e8900  !important;
+  color: #0e8900 !important;
 }
 
 .unverified {

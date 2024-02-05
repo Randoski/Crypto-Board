@@ -3,20 +3,22 @@
     <section class="style-header">
       <div class="stats-design">
         <p class="stats-criteria">Total Coins</p>
-        <p v-if="stats" class="stats-value">{{ formatNumber(stats.totalCoins) }}</p>
-        <p v-else class="stats-value">--</p>
+        <p v-if="stats" class="stats-value">
+          {{ formatNumberNonDecimal(stats.totalCoins) }}
+        </p>
+        <p v-else class="stats-value">0</p>
       </div>
 
       <div class="stats-design">
         <p class="stats-criteria">Total Market Cap</p>
         <p v-if="stats" class="stats-value">${{ shortenNumber(stats.totalMarketCap) }}</p>
-        <p v-else class="stats-value">$ --</p>
+        <p v-else class="stats-value">$</p>
       </div>
 
       <div class="stats-design">
         <p class="stats-criteria">24 Hours Vol</p>
         <p v-if="stats" class="stats-value">${{ shortenNumber(stats.total24hVolume) }}</p>
-        <p v-else class="stats-value">$ --</p>
+        <p v-else class="stats-value">$</p>
       </div>
     </section>
   </div>
@@ -39,12 +41,15 @@ export default {
   },
 
   methods: {
-    // Format Number
-    formatNumber(number) {
+    formatNumberNonDecimal(number) {
       if (number !== null && number !== undefined && !isNaN(number)) {
         const parts = parseFloat(number).toFixed(2).toString().split(".");
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return parts.join(".");
+        const integerPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        // Check if there is a decimal part and it is not .00
+        const decimalPart = parts[1] && parts[1] !== "00" ? "." + parts[1] : "";
+
+        return integerPart + decimalPart;
       }
       return "";
     },
