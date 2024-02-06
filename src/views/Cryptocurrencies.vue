@@ -136,7 +136,6 @@
 <script>
 import Stats from "../components/Stats.vue";
 import Tabs from "../components/Tabs.vue";
-import NewestCoin from "../components/NewestCoin.vue";
 import Gainers from "../components/Gainers.vue";
 import Losers from "../components/Losers.vue";
 
@@ -144,7 +143,6 @@ export default {
   components: {
     Stats,
     Tabs,
-    NewestCoin,
     Gainers,
     Losers,
   },
