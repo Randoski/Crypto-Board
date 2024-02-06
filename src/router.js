@@ -44,14 +44,6 @@ const routes = [
         component: () => import('./views/Defi.vue'),
     },
 
-    // Stablecoin
-    {
-        path: '/stablecoin',
-        name: 'Stablecoin',
-        component: () => import('./views/Stablecoin.vue'),
-    },
-
-
     // Nft
     {
         path: '/nft',

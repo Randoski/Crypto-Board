@@ -27,7 +27,6 @@ export default {
         "losers",
         "layer-1",
         "layer-2",
-        "stablecoin",
         "exchange",
         "defi",
         "nft",
