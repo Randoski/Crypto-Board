@@ -3,7 +3,7 @@
     <section class="tablet tab-container">
       <!-- Default state for the "Cryptocurrencies" tab -->
       <div class="tabs" :class="{ 'active-tab': $route.path === '/' }">
-        <router-link to="/" class="tabs-link">Cryptocurrencies</router-link>
+        <router-link to="/" class="tabs-link">All</router-link>
       </div>
       <!-- Loop through other tabs and apply styling based on active route -->
       <div
@@ -23,23 +23,25 @@ export default {
   data() {
     return {
       links: [
-        "defi",
+        "gainers",
+        "losers",
+        "layer-1",
+        "layer-2",
         "stablecoin",
-        "nft",
-        "dex",
         "exchange",
+        "defi",
+        "nft",
+        "web3",
+        "metaverse",
+        "dex",
         "staking",
         "dao",
         "meme",
         "privacy",
-        "metaverse",
         "gaming",
         "wrapped",
-        "layer-1",
-        "layer-2",
         "fan-token",
         "football-club",
-        "web3",
         "social",
       ],
     };
@@ -78,7 +80,7 @@ export default {
 /* Tabs */
 .tabs {
   margin-right: 10px;
-  background: rgba(14, 137, 0, 0.2); /* Default light green background */
+  background: rgba(14, 137, 0, 0.2);
   border-radius: 6px;
   padding: 6px 12px;
   cursor: pointer;

@@ -9,6 +9,27 @@ const routes = [
         component: () => import('./views/Cryptocurrencies.vue'),
     },
 
+    // Losers
+    {
+        path: '/gainers',
+        name: 'Losers',
+        component: () => import('./views/Losers.vue'),
+    },
+
+    // Losers
+    {
+        path: '/losers',
+        name: 'Losers',
+        component: () => import('./views/Losers.vue'),
+    },
+
+    // Newest
+    {
+        path: '/newest-coins',
+        name: 'Newest',
+        component: () => import('./views/Newest.vue'),
+    },
+
     // Learn
     {
         path: '/learn',

@@ -128,11 +128,6 @@
         <div class="col-sm-5">
           <Losers />
         </div>
-
-        <!-- Newest Coin -->
-        <div class="col-sm-5">
-          <NewestCoin />
-        </div>
       </section>
     </div>
   </div>
