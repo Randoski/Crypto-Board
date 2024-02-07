@@ -112,7 +112,12 @@
           <tbody>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Supply Verification</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-check-circle" style="color: #0e8900"></i>
+                </span>
+                Supply Verification
+              </td>
 
               <!-- Value -->
               <td v-if="supply.confirmed === true" class="text-end value verified">
@@ -130,7 +135,12 @@
             </tr>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Circulating Supply</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-infinity" style="color: #0e8900"></i>
+                </span>
+                Circulating Supply
+              </td>
 
               <!-- Value -->
               <td class="text-end value">
@@ -139,7 +149,11 @@
             </tr>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Total Supply</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-cubes" style="color: #0e8900"></i> </span
+                >Total Supply
+              </td>
 
               <!-- Value -->
               <td class="text-end value">
@@ -148,7 +162,12 @@
             </tr>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Max Supply</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-exclamation-triangle" style="color: #0e8900"></i>
+                </span>
+                Max Supply
+              </td>
 
               <!-- Value -->
               <td class="text-end value">{{ shortenNumber(supply.max) }} {{ symbol }}</td>
@@ -172,7 +191,12 @@
           <tbody>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Coin Ranking</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-star" style="color: #0e8900"></i>
+                </span>
+                Coin Ranking
+              </td>
 
               <!-- Value -->
               <td class="text-end value coin-value">
@@ -181,21 +205,36 @@
             </tr>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Price to BTC</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-money-bill-alt" style="color: #0e8900"></i>
+                </span>
+                Price to BTC
+              </td>
 
               <!-- Value -->
               <td class="text-end value coin-value">{{ formatNumber(btcPrice) }} BTC</td>
             </tr>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Price to USD</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-dollar-sign" style="color: #0e8900"></i>
+                </span>
+                Price to USD
+              </td>
 
               <!-- Value -->
               <td class="text-end value coin-value">${{ formatNumber(price) }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">24h Volume</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-layer-group" style="color: #0e8900"></i>
+                </span>
+                24h Volume
+              </td>
 
               <!-- Value -->
               <td class="text-end value coin-value">
@@ -204,14 +243,24 @@
             </tr>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Market Cap</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-chart-pie" style="color: #0e8900"></i>
+                </span>
+                Market Cap
+              </td>
 
               <!-- Value -->
               <td class="text-end value coin-value">$ {{ shortenNumber(marketCap) }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Volume / Market cap</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-chart-line" style="color: #0e8900"></i>
+                </span>
+                Volume / Market cap
+              </td>
 
               <!-- Value -->
               <td class="text-end value coin-value">
@@ -220,25 +269,42 @@
             </tr>
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">Fully Diluted Market Cap</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-chart-area" style="color: #0e8900"></i>
+                </span>
+                Fully Diluted Market Cap
+              </td>
 
               <!-- Value -->
               <td class="text-end value coin-value">
                 $ {{ shortenNumber(fullyDilutedMarketCap) }}
               </td>
             </tr>
+
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">All Time High</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-trophy" style="color: #0e8900"></i>
+                </span>
+                All Time High
+              </td>
 
               <!-- Value -->
               <td class="text-end value coin-value">
                 $ {{ shortenNumber(allTimeHigh.price) }}
               </td>
             </tr>
+
             <tr>
               <!-- Criteria -->
-              <td class="d-flex align-items-center criteria">All Time High Date</td>
+              <td class="d-flex align-items-center criteria">
+                <span class="icon"
+                  ><i class="fas fa-calendar-alt" style="color: #0e8900"></i
+                ></span>
+                All Time High Date
+              </td>
 
               <!-- Value -->
               <td class="text-end value coin-value">
@@ -270,9 +336,9 @@
 
               <!-- Value -->
               <td class="text-end value">
-                <a :href="link.url" target="_blank" class="ext-link-styles"
+                <router-link :href="link.url"  class="ext-link-styles"
                   >{{ link.name }}
-                </a>
+                </router-link>
               </td>
             </tr>
 
@@ -433,6 +499,10 @@ export default {
       type: String,
       required: true,
     },
+    tags: {
+      type: Object,
+      default: () => ({}),
+    },
   },
 };
 </script>
@@ -532,6 +602,11 @@ export default {
 
 .negative-price .percentage {
   color: #e30d0d;
+}
+
+.icon {
+  width: 20px;
+  margin-right: 4px;
 }
 
 .cal-set {
