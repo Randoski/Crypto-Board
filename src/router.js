@@ -9,22 +9,8 @@ const routes = [
         component: () => import('./views/Cryptocurrencies.vue'),
     },
 
-    // Losers
-    {
-        path: '/gainers',
-        name: 'Losers',
-        component: () => import('./views/Losers.vue'),
-    },
-
-    // Losers
-    {
-        path: '/losers',
-        name: 'Losers',
-        component: () => import('./views/Losers.vue'),
-    },
-
-    // Learn
-    {
+     // Learn
+     {
         path: '/learn',
         name: 'Learn',
         component: () => import('./views/Learn.vue'),
@@ -35,6 +21,27 @@ const routes = [
         path: '/coin/:id',
         name: 'Coin',
         component: () => import('./views/Coin.vue'),
+    },
+
+    // Gainers
+    {
+        path: '/gainers',
+        name: 'Gainers',
+        component: () => import('./views/Gainers.vue'),
+    },
+
+    // Losers
+    {
+        path: '/losers',
+        name: 'Losers',
+        component: () => import('./views/Losers.vue'),
+    },
+
+    // Stable
+    {
+        path: '/stablecoin',
+        name: 'Stablecoin',
+        component: () => import('./views/Stablecoin.vue'),
     },
 
     // Defi

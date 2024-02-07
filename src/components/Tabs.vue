@@ -1,18 +1,21 @@
 <template>
   <div>
     <section class="tablet tab-container">
-      <!-- Default state for the "Cryptocurrencies" tab -->
-      <div class="tabs" :class="{ 'active-tab': $route.path === '/' }">
-        <router-link to="/" class="tabs-link">All</router-link>
+      <div>
+        <router-link
+          to="/"
+          class="tabs-link"
+          :class="{ 'active-tab': $route.path === '/' }"
+          >All</router-link
+        >
       </div>
-      <!-- Loop through other tabs and apply styling based on active route -->
-      <div
-        v-for="link in links"
-        :key="link"
-        class="tabs"
-        :class="{ 'active-tab': $route.path === '/' + link }"
-      >
-        <router-link :to="'/' + link" class="tabs-link">{{ link }}</router-link>
+      <div v-for="link in links" :key="link">
+        <router-link
+          :to="'/' + link"
+          class="tabs-link"
+          :class="{ 'active-tab': $route.path === '/' + link }"
+          >{{ capitalizeFirstLetter(link) }}</router-link
+        >
       </div>
     </section>
   </div>
@@ -27,6 +30,7 @@ export default {
         "losers",
         "layer-1",
         "layer-2",
+        "stablecoin",
         "exchange",
         "defi",
         "nft",
@@ -44,6 +48,16 @@ export default {
         "social",
       ],
     };
+  },
+
+  methods: {
+    capitalizeFirstLetter(link) {
+      if (link && link.length > 0) {
+        return link.charAt(0).toUpperCase() + link.slice(1);
+      } else {
+        return "";
+      }
+    },
   },
 };
 </script>
@@ -76,32 +90,37 @@ export default {
   -ms-overflow-style: none;
 }
 
-/* Tabs */
-.tabs {
-  margin-right: 10px;
-  background: rgba(14, 137, 0, 0.2);
-  border-radius: 6px;
-  padding: 6px 12px;
-  cursor: pointer;
-  transition: background 0.3s;
-  border: 1px solid transparent;
-}
-
 /* Active Tab link */
 .active-tab {
-  background: #0e8900; /* Dark green background for active tab */
+  background: #0e8900;
 }
 
 /* Tab links */
 .tabs-link {
-  color: rgb(100, 100, 100) !important;
+  color: rgb(100, 100, 100);
   text-decoration: none;
   white-space: nowrap;
   overflow: visible;
+  margin: 0 10px;
+  padding: 12px 16px;
+  background: rgba(14, 137, 0, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.5;
+  border: 1px solid transparent;
+  display: inline-block;
+  line-height: normal;
+  box-sizing: border-box;
+}
+
+.tabs-link:hover {
+  background: #0e8900;
+  color: white;
 }
 
 /* Active Tab Link */
-.active-tab .tabs-link {
+.active-tab {
   color: white !important;
+  background: #0e8900;
 }
 </style>

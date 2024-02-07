@@ -68,7 +68,7 @@
                 <td class="text-end">
                   <router-link
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
-                    class="table-link"
+                    class=""
                     :class="{
                       'red-text': coin.change < 0,
                       'green-text': coin.change >= 0,
@@ -252,7 +252,6 @@ th {
 td {
   padding-top: 20px !important;
   padding-bottom: 20px !important;
-  color: rgb(69, 66, 66) !important;
   font-size: 12px;
   font-weight: 700;
 }
@@ -316,11 +315,13 @@ td {
 }
 
 .red-text {
-  color: red !important;
+  color: rgb(232, 13, 13) !important;
+  text-decoration: none;
 }
 
 .green-text {
   color: #0e8900 !important;
+  text-decoration: none;
 }
 
 /* Media Queries */

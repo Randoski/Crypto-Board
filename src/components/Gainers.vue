@@ -50,7 +50,7 @@
               <td class="text-end">
                 <router-link
                   :to="{ name: 'Coin', params: { id: coin.uuid } }"
-                  class="table-link green-text"
+                  class="green-text"
                 >
                   <span>+</span>{{ coin.change }}%
                 </router-link>
@@ -71,7 +71,7 @@
 
     <!-- Redirect to All Gainers Page -->
     <div v-if="gainers.length">
-      <router-link to="/" class="cta">View all Gainers</router-link>
+      <router-link to="/gainers" class="cta">View all Gainers</router-link>
     </div>
   </div>
 </template>
@@ -153,9 +153,21 @@ export default {
   color: rgb(100, 100, 100) !important;
 }
 
-/* .cta {
+.cta {
   text-decoration: none;
   background: rgba(14, 137, 0, 0.2);
-  width: 100%;
-} */
+  color: rgb(100, 100, 100);
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+  margin-top: 32px;
+  border-radius: 6px;
+}
+
+.cta:hover {
+  background-color: #0e8900;
+  color: white;
+}
 </style>
