@@ -11,14 +11,14 @@
 
       <div class="stats-design">
         <p class="stats-criteria">Total Market Cap</p>
-        <p v-if="stats" class="stats-value">${{ shortenNumber(stats.totalMarketCap) }}</p>
-        <p v-else class="stats-value">$</p>
+        <p v-if="stats" class="stats-value">₦{{ shortenNumber(stats.totalMarketCap) }}</p>
+        <p v-else class="stats-value">₦</p>
       </div>
 
       <div class="stats-design">
         <p class="stats-criteria">24 Hours Vol</p>
-        <p v-if="stats" class="stats-value">${{ shortenNumber(stats.total24hVolume) }}</p>
-        <p v-else class="stats-value">$</p>
+        <p v-if="stats" class="stats-value">₦{{ shortenNumber(stats.total24hVolume) }}</p>
+        <p v-else class="stats-value">₦</p>
       </div>
     </section>
   </div>
@@ -33,7 +33,7 @@ export default {
   },
 
   mounted() {
-    fetch("https://api.coinranking.com/v2/coins")
+    fetch("https://api.coinranking.com/v2/coins?referenceCurrencyUuid=znnRJjGM4nVb")
       .then((response) => response.json())
       .then((data) => {
         this.stats = data.data.stats;
@@ -59,27 +59,37 @@ export default {
       if (typeof number === "undefined" || number === null) {
         return "";
       }
-      const suffixes = ["", "k", "m", "b", "t"];
+
+      const suffixes = [
+        "",
+        " k",
+        " million",
+        " billion",
+        " trillion",
+        " quadrillion",
+        " quintillion",
+      ];
+
       let suffixIndex = 0;
       while (Math.abs(number) >= 1000 && suffixIndex < suffixes.length - 1) {
         number /= 1000;
         suffixIndex++;
       }
+
       let formattedNumber;
-      if (number >= 1000) {
-        formattedNumber = parseFloat(number.toFixed(3));
-      } else if (number >= 10) {
-        formattedNumber = Math.floor(number);
-      } else if (number >= 1) {
-        formattedNumber = parseFloat(number.toFixed(2));
+      if (number >= 10000 && number < 100000) {
+        formattedNumber = parseFloat((number / 1000).toFixed(1));
+      } else if (number >= 100000) {
+        formattedNumber = parseFloat((number / 1000).toFixed(0));
       } else {
-        formattedNumber = parseFloat(number.toFixed(3));
+        formattedNumber = parseFloat(number.toFixed(2));
       }
 
-      return (
-        formattedNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-        suffixes[suffixIndex]
-      );
+      formattedNumber = formattedNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      formattedNumber += suffixes[suffixIndex];
+
+      return formattedNumber;
     },
   },
 };

@@ -6,10 +6,10 @@ import router from './router';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.css';
-import VueChartkick from 'vue-chartkick'
-import 'chartkick/chart.js'
+// import VueChartkick from 'vue-chartkick'
+// import 'chartkick/chart.js'
 
 const app = createApp(App);
 app.use(router);
-app.use(VueChartkick);
+// app.use(VueChartkick);
 app.mount('#app');

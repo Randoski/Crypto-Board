@@ -28,9 +28,9 @@ export default {
       links: [
         "gainers",
         "losers",
+        "stablecoin",
         "layer-1",
         "layer-2",
-        "stablecoin",
         "exchange",
         "defi",
         "nft",
@@ -122,5 +122,19 @@ export default {
 .active-tab {
   color: white !important;
   background: #0e8900;
+}
+
+@media (max-width: 576px) {
+  .dropdown-menu {
+    position: fixed;
+    top: 50px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: calc(100vh - 50px); /* Adjust as needed */
+    overflow-y: auto;
+  }
 }
 </style>

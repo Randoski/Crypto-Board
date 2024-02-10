@@ -15,13 +15,13 @@
                 </div>
                 <!-- Web Amount -->
                 <div>
-                  <p class="desktop-amount">${{ formatNumber(coin.price) }}</p>
+                  <p class="desktop-amount">₦{{ formatNumber(coin.price) }}</p>
                 </div>
               </div>
 
               <!-- Amount -->
               <div>
-                <p class="mobile-amount">${{ formatNumber(coin.price) }}</p>
+                <p class="mobile-amount">₦{{ formatNumber(coin.price) }}</p>
               </div>
             </div>
 
@@ -44,6 +44,7 @@
               <div id="price" class="container tab-pane active">
                 <div>
                   <Price
+                    :name="coin.name"
                     :description="coin.description"
                     :allTimeHigh="coin.allTimeHigh"
                     :supply="coin.supply"
@@ -55,6 +56,7 @@
                     :24hVolume="coin['24hVolume']"
                     :marketCap="coin.marketCap"
                     :fullyDilutedMarketCap="coin.fullyDilutedMarketCap"
+                    :tags="coin"
                   />
                 </div>
               </div>
@@ -104,7 +106,9 @@ export default {
 
   methods: {
     fetchCoinDetails(coinId) {
-      fetch(`https://api.coinranking.com/v2/coin/${coinId}`)
+      fetch(
+        `https://api.coinranking.com/v2/coin/${coinId}?referenceCurrencyUuid=znnRJjGM4nVb`
+      )
         .then((response) => response.json())
         .then((data) => {
           if (data.status === "success") {

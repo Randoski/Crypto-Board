@@ -42,7 +42,7 @@
                   :to="{ name: 'Coin', params: { id: coin.uuid } }"
                   class="table-link"
                 >
-                  ${{ formatNumber(coin.price) }}</router-link
+                  ₦{{ formatNumber(coin.price) }}</router-link
                 >
               </td>
 
@@ -50,7 +50,7 @@
               <td class="text-end">
                 <router-link
                   :to="{ name: 'Coin', params: { id: coin.uuid } }"
-                  class=" red-text"
+                  class="red-text"
                 >
                   <span></span>{{ coin.change }}%
                 </router-link>
@@ -85,7 +85,7 @@ export default {
     };
   },
   mounted() {
-    fetch("https://api.coinranking.com/v2/coins")
+    fetch("https://api.coinranking.com/v2/coins?referenceCurrencyUuid=znnRJjGM4nVb")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -141,4 +141,3 @@ export default {
   },
 };
 </script>
-

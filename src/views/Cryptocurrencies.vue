@@ -51,7 +51,7 @@
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
                     class="table-link"
                   >
-                    ${{ formatNumber(coin.price) }}</router-link
+                    ₦{{ shortenNumber(coin.price) }}</router-link
                   >
                 </td>
 
@@ -60,7 +60,7 @@
                   <router-link
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
                     class="table-link text-end"
-                    >${{ shortenNumber(coin.marketCap) }}</router-link
+                    >₦{{ shortenNumber(coin.marketCap) }}</router-link
                   >
                 </td>
 
@@ -154,7 +154,7 @@ export default {
   },
 
   mounted() {
-    fetch("https://api.coinranking.com/v2/coins")
+    fetch("https://api.coinranking.com/v2/coins?referenceCurrencyUuid=znnRJjGM4nVb")
       .then((response) => response.json())
       .then((data) => {
         this.coins = data.data.coins;
@@ -175,31 +175,41 @@ export default {
       return "";
     },
 
-    // Shorten Number
     shortenNumber(number) {
-      const suffixes = ["", "k", "m", "b", "t"];
+      if (typeof number === "undefined" || number === null) {
+        return "";
+      }
 
+      const suffixes = ["", "k", "m", "b", "t", "qd", "qt"];
       let suffixIndex = 0;
-      while (Math.abs(number) >= 1000 && suffixIndex < suffixes.length - 1) {
-        number /= 1000;
+
+      // Convert the number to absolute value for easier manipulation
+      let absNumber = Math.abs(number);
+
+      // Determine the appropriate suffix and divide the number accordingly
+      while (absNumber >= 1000 && suffixIndex < suffixes.length - 1) {
+        absNumber /= 1000;
         suffixIndex++;
       }
 
-      let formattedNumber;
-      if (number >= 1000) {
-        formattedNumber = parseFloat(number.toFixed(3));
-      } else if (number >= 10) {
-        formattedNumber = Math.floor(number);
-      } else if (number >= 1) {
-        formattedNumber = parseFloat(number.toFixed(2));
-      } else {
-        formattedNumber = parseFloat(number.toFixed(3));
+      // Round the number to at most two decimal places
+      let roundedNumber = parseFloat(absNumber.toFixed(2));
+
+      // Convert the rounded number to string
+      let formattedNumber = roundedNumber.toString();
+
+      // Add commas for thousands separator
+      formattedNumber = formattedNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      // Append the appropriate suffix based on suffixIndex
+      formattedNumber += " " + suffixes[suffixIndex];
+
+      // Add a minus sign for negative numbers
+      if (number < 0) {
+        formattedNumber = "-" + formattedNumber;
       }
 
-      return (
-        formattedNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-        suffixes[suffixIndex]
-      );
+      return formattedNumber;
     },
   },
 };

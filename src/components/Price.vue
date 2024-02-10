@@ -61,12 +61,9 @@
         <div class="heading-cont">
           <!-- First Input-->
           <div class="input-group mb-3">
-            <input type="text" class="form-control cal-set" placeholder="First Name" />
+            <input type="text" class="form-control cal-set" />
             <select class="form-select cal-set cal-drop" aria-label="Select person">
-              <option selected>Choose a person</option>
-              <option value="john">John</option>
-              <option value="jane">Jane</option>
-              <option value="alex">Alex</option>
+              <option selected>{{ symbol }} - {{ name }}</option>
             </select>
           </div>
 
@@ -77,12 +74,14 @@
 
           <!-- Second Input-->
           <div class="input-group mb-3">
-            <input type="text" class="form-control cal-set" placeholder="First Name" />
+            <input type="text" class="form-control cal-set" />
             <select class="form-select cal-set cal-drop" aria-label="Select person">
-              <option selected>Choose a person</option>
-              <option value="john">John</option>
-              <option value="jane">Jane</option>
-              <option value="alex">Alex</option>
+              <option v-for="currency in currencies" :key="currency.uuid">
+                {{ currency.symbol }} - {{ currency.name }}
+              </option>
+              <!-- <option v-for="coin in coins" :key="coin.uuid">
+                {{ coin.symbol }} - {{ coin.name }}
+              </option> -->
             </select>
           </div>
 
@@ -110,7 +109,7 @@
         <table class="heading-cont table table-sub-section">
           <!-- Table Body -->
           <tbody>
-            <tr>
+            <tr v-if="supply.confirmed">
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">
                 <span class="icon"
@@ -133,7 +132,8 @@
 
               <td v-else class="text-end value"></td>
             </tr>
-            <tr>
+
+            <tr v-if="supply.circulating">
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">
                 <span class="icon"
@@ -147,7 +147,8 @@
                 {{ shortenNumber(supply.circulating) }} {{ symbol }}
               </td>
             </tr>
-            <tr>
+
+            <tr v-if="supply.total">
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">
                 <span class="icon"
@@ -160,7 +161,7 @@
                 {{ shortenNumber(supply.total) }} {{ symbol }}
               </td>
             </tr>
-            <tr>
+            <tr v-if="supply.max">
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">
                 <span class="icon"
@@ -221,11 +222,11 @@
                 <span class="icon"
                   ><i class="fas fa-dollar-sign" style="color: #0e8900"></i>
                 </span>
-                Price to USD
+                Price to NGN
               </td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">${{ formatNumber(price) }}</td>
+              <td class="text-end value coin-value">₦{{ formatNumber(price) }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
@@ -238,7 +239,7 @@
 
               <!-- Value -->
               <td class="text-end value coin-value">
-                $ {{ shortenNumber($props["24hVolume"]) }}
+                ₦ {{ shortenNumber($props["24hVolume"]) }}
               </td>
             </tr>
             <tr>
@@ -251,7 +252,7 @@
               </td>
 
               <!-- Value -->
-              <td class="text-end value coin-value">$ {{ shortenNumber(marketCap) }}</td>
+              <td class="text-end value coin-value">₦ {{ shortenNumber(marketCap) }}</td>
             </tr>
             <tr>
               <!-- Criteria -->
@@ -278,7 +279,7 @@
 
               <!-- Value -->
               <td class="text-end value coin-value">
-                $ {{ shortenNumber(fullyDilutedMarketCap) }}
+                ₦ {{ shortenNumber(fullyDilutedMarketCap) }}
               </td>
             </tr>
 
@@ -325,27 +326,25 @@
         <p class="price-page-desc">Statement about Links</p>
 
         <!-- Table -->
-        <table class="table table- table-sub-section">
+        <table class="heading-cont table table-sub-section">
           <!-- Table Body -->
           <tbody>
             <tr v-for="(link, index) in links" :key="index">
               <!-- Criteria -->
               <td class="d-flex align-items-center criteria">
-                {{ link.type }}
+                <span class="icon"
+                  ><i :class="getIconClass(link.type)" style="color: #0e8900"></i>
+                </span>
+                {{ capitalizeFirstLetter(link.type) }}
               </td>
 
               <!-- Value -->
               <td class="text-end value">
-                <router-link :href="link.url"  class="ext-link-styles"
+                <a :href="link.url" target="_blank" class="ext-link-styles"
                   >{{ link.name }}
-                </router-link>
+                </a>
               </td>
             </tr>
-
-            <!-- Tags -->
-            <!-- <tr v-for="(tag, index) in tags" :key="index">
-              <td>{{ coin.tag }}</td>
-            </tr> -->
           </tbody>
         </table>
       </div>
@@ -355,6 +354,36 @@
 
 <script>
 export default {
+  data() {
+    return {
+      defaultCoin: 1,
+      defaultCurrency: 1,
+      date: "sample",
+      icons: {
+        bitcointalk: "fab fa-bitcoin",
+        explorer: "fas fa-search",
+        discord: "fab fa-discord",
+        facebook: "fab fa-facebook",
+        github: "fab fa-github",
+        instagram: "fab fa-instagram",
+        linkedin: "fab fa-linkedin",
+        medium: "fab fa-medium",
+        qq: "fas fa-comment",
+        quora: "fab fa-quora",
+        reddit: "fab fa-reddit",
+        telegram: "fab fa-telegram",
+        tiktok: "fas fa-video",
+        twitter: "fab fa-twitter",
+        vkontakte: "fas fa-comment",
+        wechat: "fas fa-comment",
+        whitepaper: "fas fa-file-alt",
+        youtube: "fab fa-youtube",
+        website: "fas fa-globe",
+        etc: "fas fa-ellipsis-h-alt",
+      },
+    };
+  },
+
   computed: {
     computedVolMarketCap() {
       if (!isNaN(parseFloat(this.btcPrice)) && !isNaN(parseFloat(this.marketCap))) {
@@ -365,7 +394,53 @@ export default {
     },
   },
 
+  mounted() {
+    fetch("https://api.coinranking.com/v2/coins?referenceCurrencyUuid=znnRJjGM4nVb")
+      .then((response) => response.json())
+      .then((data) => {
+        this.coins = data.data.coins;
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+
+    fetch("https://api.coinranking.com/v2/reference-currencies")
+      .then((response) => response.json())
+      .then((data) => {
+        this.currencies = data.data.currencies;
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  },
+
   methods: {
+    getIconClass(type) {
+      return this.icons[type] || this.icons["etc"];
+    },
+    arrayToText(array) {
+      if (!Array.isArray(array)) {
+        return "";
+      }
+
+      if (array.length === 0) {
+        return ";";
+      }
+
+      if (array.length === 1) {
+        return array[0];
+      }
+      return array.slice(0 - 1).join(", ") + "," + array[array.length - 1];
+    },
+
+    capitalizeFirstLetter(link) {
+      if (link && link.length > 0) {
+        return link.charAt(0).toUpperCase() + link.slice(1);
+      } else {
+        return "";
+      }
+    },
+
     formatNumber(number) {
       if (number !== null && number !== undefined && !isNaN(number)) {
         const parts = parseFloat(number).toFixed(2).toString().split(".");
@@ -394,29 +469,44 @@ export default {
         return "";
       }
 
-      const suffixes = ["", "k", "m", "b", "t"];
+      const suffixes = [
+        "",
+        "k",
+        "million",
+        "billion",
+        "trillion",
+        "quadrillion",
+        "quantillion",
+      ];
       let suffixIndex = 0;
 
-      while (Math.abs(number) >= 1000 && suffixIndex < suffixes.length - 1) {
-        number /= 1000;
+      // Convert the number to absolute value for easier manipulation
+      let absNumber = Math.abs(number);
+
+      // Determine the appropriate suffix and divide the number accordingly
+      while (absNumber >= 1000 && suffixIndex < suffixes.length - 1) {
+        absNumber /= 1000;
         suffixIndex++;
       }
 
-      let formattedNumber;
+      // Round the number to at most two decimal places
+      let roundedNumber = parseFloat(absNumber.toFixed(2));
 
-      if (number >= 1000) {
-        formattedNumber = parseFloat(number.toFixed(1));
-      } else if (number >= 10) {
-        formattedNumber = Math.floor(number);
-      } else if (number >= 1) {
-        formattedNumber = parseFloat(number.toFixed(1));
-        formattedNumber = parseFloat(number.toFixed(2));
+      // Convert the rounded number to string
+      let formattedNumber = roundedNumber.toString();
+
+      // Add commas for thousands separator
+      formattedNumber = formattedNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      // Append the appropriate suffix based on suffixIndex
+      formattedNumber += " " + suffixes[suffixIndex];
+
+      // Add a minus sign for negative numbers
+      if (number < 0) {
+        formattedNumber = "-" + formattedNumber;
       }
 
-      return (
-        formattedNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-        suffixes[suffixIndex]
-      );
+      return formattedNumber;
     },
 
     // Format Date,
@@ -447,6 +537,10 @@ export default {
   },
 
   props: {
+    name: {
+      type: String,
+      required: true,
+    },
     price: {
       type: String,
       required: true,
@@ -465,10 +559,6 @@ export default {
     },
     links: {
       type: Array,
-      required: true,
-    },
-    tags: {
-      type: Object,
       required: true,
     },
     rank: {
@@ -500,8 +590,8 @@ export default {
       required: true,
     },
     tags: {
-      type: Object,
-      default: () => ({}),
+      type: Array,
+      required: true,
     },
   },
 };

@@ -5,9 +5,6 @@
       <h1 class="page-text-header">All Cryptocurrencies Prices</h1>
       <p class="page-text">We've compilled a list of Cryptocurrencies just for you.</p>
 
-      <!--Stats -->
-      <Stats />
-
       <!-- Tabs -->
       <Tabs />
 
@@ -27,8 +24,8 @@
             </thead>
             <!-- Table Body -->
             <tbody>
-              <tr v-for="coin in coins" :key="coin.uuid">
-                <td class="numbering">{{ coin.rank }}</td>
+              <tr v-for="(coin, index) in coins" :key="coin.uuid">
+                <td class="numbering">{{ index + 1 }}</td>
                 <td class="d-flex align-items-center">
                   <router-link
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
@@ -51,7 +48,7 @@
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
                     class="table-link"
                   >
-                    ${{ formatNumber(coin.price) }}</router-link
+                    ₦{{ shortenNumber(coin.price) }}</router-link
                   >
                 </td>
 
@@ -60,7 +57,7 @@
                   <router-link
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
                     class="table-link text-end"
-                    >${{ shortenNumber(coin.marketCap) }}</router-link
+                    >₦{{ shortenNumber(coin.marketCap) }}</router-link
                   >
                 </td>
 
@@ -68,7 +65,7 @@
                 <td class="text-end">
                   <router-link
                     :to="{ name: 'Coin', params: { id: coin.uuid } }"
-                    class="table-link"
+                    class=""
                     :class="{
                       'red-text': coin.change < 0,
                       'green-text': coin.change >= 0,
@@ -132,7 +129,9 @@ export default {
   },
 
   mounted() {
-    fetch("https://api.coinranking.com/v2/coins?tags=defi")
+    fetch(
+      "https://api.coinranking.com/v2/coins?referenceCurrencyUuid=znnRJjGM4nVb&tags=defi"
+    )
       .then((response) => response.json())
       .then((data) => {
         this.coins = data.data.coins;
@@ -153,31 +152,41 @@ export default {
       return "";
     },
 
-    // Shorten Number
     shortenNumber(number) {
-      const suffixes = ["", "k", "m", "b", "t"];
+      if (typeof number === "undefined" || number === null) {
+        return "";
+      }
 
+      const suffixes = ["", "k", "m", "b", "t", "qd", "qt"];
       let suffixIndex = 0;
-      while (Math.abs(number) >= 1000 && suffixIndex < suffixes.length - 1) {
-        number /= 1000;
+
+      // Convert the number to absolute value for easier manipulation
+      let absNumber = Math.abs(number);
+
+      // Determine the appropriate suffix and divide the number accordingly
+      while (absNumber >= 1000 && suffixIndex < suffixes.length - 1) {
+        absNumber /= 1000;
         suffixIndex++;
       }
 
-      let formattedNumber;
-      if (number >= 1000) {
-        formattedNumber = parseFloat(number.toFixed(3));
-      } else if (number >= 10) {
-        formattedNumber = Math.floor(number);
-      } else if (number >= 1) {
-        formattedNumber = parseFloat(number.toFixed(2));
-      } else {
-        formattedNumber = parseFloat(number.toFixed(3));
+      // Round the number to at most two decimal places
+      let roundedNumber = parseFloat(absNumber.toFixed(2));
+
+      // Convert the rounded number to string
+      let formattedNumber = roundedNumber.toString();
+
+      // Add commas for thousands separator
+      formattedNumber = formattedNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      // Append the appropriate suffix based on suffixIndex
+      formattedNumber += " " + suffixes[suffixIndex];
+
+      // Add a minus sign for negative numbers
+      if (number < 0) {
+        formattedNumber = "-" + formattedNumber;
       }
 
-      return (
-        formattedNumber.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-        suffixes[suffixIndex]
-      );
+      return formattedNumber;
     },
   },
 };
@@ -230,10 +239,15 @@ th {
 td {
   padding-top: 20px !important;
   padding-bottom: 20px !important;
-  color: rgb(69, 66, 66) !important;
   font-size: 12px;
   font-weight: 700;
 }
+
+/* Crypto Image */
+/* img {
+  width: 10px;
+  height: 10px;
+} */
 
 /* Numbering */
 .numbering {
@@ -282,12 +296,19 @@ td {
   border: 1px solid transparent;
 }
 
+/* Sub section */
+.sub-section {
+  margin-top: 108px;
+}
+
 .red-text {
-  color: red !important;
+  color: rgb(232, 13, 13) !important;
+  text-decoration: none;
 }
 
 .green-text {
   color: #0e8900 !important;
+  text-decoration: none;
 }
 
 /* Media Queries */

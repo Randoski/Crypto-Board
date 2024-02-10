@@ -42,7 +42,7 @@
                   :to="{ name: 'Coin', params: { id: coin.uuid } }"
                   class="table-link"
                 >
-                  ${{ formatNumber(coin.price) }}</router-link
+                  ₦{{ formatNumber(coin.price) }}</router-link
                 >
               </td>
 
@@ -85,7 +85,7 @@ export default {
     };
   },
   mounted() {
-    fetch("https://api.coinranking.com/v2/coins")
+    fetch("https://api.coinranking.com/v2/coins?referenceCurrencyUuid=znnRJjGM4nVb")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -163,6 +163,7 @@ export default {
   align-items: center;
   padding: 8px 0;
   margin-top: 32px;
+  border: 0;
   border-radius: 6px;
 }
 
